@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=11 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Scripts/Progress_Bar.gd" id="8_ws3e0"]
 [ext_resource type="Texture2D" uid="uid://tndtaw32bp8g" path="res://Sprites/Upgrade_Button.png" id="9_eojcb"]
 [ext_resource type="Script" path="res://Scripts/Next_Country_Button.gd" id="9_r4qll"]
-[ext_resource type="Script" path="res://Scripts/Cheat_Button.gd" id="11_nl6rp"]
 
 [node name="GameScene" type="Node"]
 script = ExtResource("1_122oa")
@@ -46,7 +45,7 @@ grow_vertical = 2
 script = ExtResource("4_2afog")
 
 [node name="coin_value_button" type="Button" parent="GameUI/Panel/Add_Click_Value_Button"]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 774.0
@@ -58,7 +57,7 @@ grow_vertical = 2
 text = "+1€ por Click"
 
 [node name="upgrade_button" type="Button" parent="GameUI/Panel/Add_Click_Value_Button"]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1012.0
@@ -87,17 +86,16 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 172.0
-offset_top = 205.0
-offset_right = -358.0
-offset_bottom = -75.0
+offset_left = 205.0
+offset_top = 200.0
+offset_right = -435.0
+offset_bottom = -107.0
 scale = Vector2(0.72, 0.72)
 texture_normal = ExtResource("1_y62jt")
 texture_pressed = ExtResource("1_y62jt")
 texture_hover = ExtResource("1_y62jt")
 texture_disabled = ExtResource("1_y62jt")
 texture_focused = ExtResource("1_y62jt")
-ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("2_ws5ks")
 
@@ -130,18 +128,6 @@ offset_bottom = -272.0
 offset_top = 397.0
 offset_bottom = -199.0
 
-[node name="Industry_Button5" parent="GameUI/Industries" instance=ExtResource("7_4780o")]
-offset_left = 774.0
-offset_top = 468.0
-offset_right = -18.0
-offset_bottom = -128.0
-
-[node name="Industry_Button6" parent="GameUI/Industries" instance=ExtResource("7_4780o")]
-offset_left = 776.0
-offset_top = 536.0
-offset_right = -16.0
-offset_bottom = -60.0
-
 [node name="Country_Label" type="Label" parent="GameUI"]
 layout_mode = 1
 anchors_preset = -1
@@ -164,8 +150,7 @@ offset_top = 25.0
 offset_right = 74.0
 offset_bottom = -84.0
 grow_vertical = 2
-max_value = 1.0
-value = 0.1
+value = 13.0
 fill_mode = 3
 script = ExtResource("8_ws3e0")
 
@@ -202,14 +187,3 @@ theme_override_font_sizes/font_size = 150
 text = "Mejorar el País"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CheatButton" type="Button" parent="GameUI"]
-layout_mode = 0
-offset_left = 569.0
-offset_top = 594.0
-offset_right = 728.0
-offset_bottom = 633.0
-text = "Ganar mucha pasta"
-script = ExtResource("11_nl6rp")
-mantisa = 1.0
-exponente = 7
