@@ -3,7 +3,7 @@ var _industries = []
 var _coin:TextureButton
 
 func _ready():
-	_industries = get_node("Industries").get_children()
+	_industries = get_node("Right_Panel/Industries").get_children()
 	
 	for i in range(0,6):
 		var data = Country_Data_Base.Get_industry_data(i)

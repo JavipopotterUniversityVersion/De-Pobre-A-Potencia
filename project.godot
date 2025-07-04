@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/Game_Manager.gd"
+TweensDataBase="*res://Scripts/Tweens_DataBase.gd"
 
 [display]
 

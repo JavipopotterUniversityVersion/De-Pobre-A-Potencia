@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://hx7rrsaga30l"]
+[gd_scene load_steps=7 format=3 uid="uid://bksovloummcfb"]
 
 [ext_resource type="Script" path="res://Scripts/Industry_Button.gd" id="1_be8uo"]
+[ext_resource type="Script" path="res://Scripts/Info_Panel.gd" id="2_45bxh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn1kr"]
+bg_color = Color(0.14902, 0.129412, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jtsc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8d7r"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wsdi"]
+bg_color = Color(0.141176, 0.0823529, 0.0823529, 0.956863)
 
 [node name="Industry_Button" type="Button"]
 anchors_preset = 15
@@ -14,4 +27,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.286275, 0.286275, 0.286275, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn1kr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3jtsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t8d7r")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2wsdi")
 script = ExtResource("1_be8uo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -19.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 19.0
+grow_horizontal = 0
+script = ExtResource("2_45bxh")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "i"
+horizontal_alignment = 1

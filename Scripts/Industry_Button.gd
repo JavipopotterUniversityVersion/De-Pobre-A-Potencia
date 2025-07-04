@@ -6,6 +6,7 @@ var _industry_name:String
 var _level:int
 var _upgrade_cost:Big
 var _revenue:Big
+var _original_revenue:Big
 
 func _ready():
 	disabled = true
@@ -17,6 +18,7 @@ func set_industry(data, inactive = true):
 	_industry_name = data.name
 	_upgrade_cost = data.cost
 	_revenue = data.revenue
+	_original_revenue = data.revenue
 	_update_text()
 
 func _on_press():
@@ -29,20 +31,26 @@ func _on_press():
 func _buy():
 	_is_bought = true
 	while(_is_bought):
-		GameManager.add_money(_revenue)
 		await get_tree().create_timer(60).timeout
+		GameManager.add_money(_revenue)
 
 func _upgrade():
-	_revenue = Big.add(_revenue, 10)
-	_upgrade_cost = Big.times(_upgrade_cost, 1.5)
+	_revenue = Big.add(_revenue, _original_revenue)
+#	_upgrade_cost = Big.times(_upgrade_cost, 1.5)
 	_update_text()
 
 func _update_text():
-	text = _industry_name + " " + _revenue.toAA() + "€/min\n"
-	if(_is_bought):
-		text = text + "Mejorar: " + _upgrade_cost.toAA() + "€"
+	if disabled:
+		text = "?"
 	else:
-		text = text + "Comprar: " + _upgrade_cost.toAA() +  "€"
+		text = _industry_name + "\n"
+#		 + " " + _revenue.toAA() + "€/min\n"
+		if(_is_bought):
+			text = text + "Upgrade: " + _upgrade_cost.toAA() + "€"
+		else:
+			text = text + "Buy: " + _upgrade_cost.toAA() +  "€"
 
+func get_description():
+	return "Generate " + _revenue.toAA() + "€/min"
 
 

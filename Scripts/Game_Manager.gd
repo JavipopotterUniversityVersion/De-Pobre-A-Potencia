@@ -7,6 +7,14 @@ var _current_money:Big = Big.new(0)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
 
+const INFO_PANEL = preload("res://Prefabs/info_panel.tscn")
+var info_panel
+
+func _ready():
+	info_panel = INFO_PANEL.instantiate()
+	add_child(info_panel)
+	info_panel.visible = false
+
 func get_next_country_cost():
 	return Country_Data_Base.Get_next_country_cost(country_index)
 
@@ -42,3 +50,11 @@ func sub_money(amount:Big):
 
 func add_click_value(amount:Big):
 	_coin_button_value = Big.add(_coin_button_value, amount)
+
+func set_info_panel(position:Vector2, description:String):
+	info_panel.visible = true
+	info_panel.get_node("Info_Panel").global_position = position - Vector2(140,70)
+	info_panel.get_node("Info_Panel/Description").text = description
+
+func hide_info_panel():
+	info_panel.visible = false

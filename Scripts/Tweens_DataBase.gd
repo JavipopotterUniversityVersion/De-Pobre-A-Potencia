@@ -8,6 +8,21 @@ func get_tween(tween_name):
 	return tweens[tween_name]
 
 var tweens = {
+	"pop":
+		func(context):
+			var original_scale = context.object.scale
+			var tween:Tween = context.object.create_tween()
+			tween.tween_property(context.object, 'scale', context.new_scale, context.duration/2)
+			tween.tween_property(context.object, 'scale', original_scale, context.duration/2)
+			emit_signal("on_animation_end"),
+			
+	"pop_up":
+		func(context):
+			var original_scale = context.object.scale
+			var tween:Tween = context.object.create_tween()
+			tween.tween_property(context.object, 'scale', context.new_scale, context.duration)
+			emit_signal("on_animation_end"),
+			
 	"go_to":
 		func(context):
 			var tween:Tween = context.object.create_tween()
