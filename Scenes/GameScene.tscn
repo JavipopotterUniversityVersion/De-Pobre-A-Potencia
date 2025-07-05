@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=21 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://tndtaw32bp8g" path="res://Sprites/Upgrade_Button.png" id="9_eojcb"]
 [ext_resource type="Script" path="res://Scripts/Next_Country_Button.gd" id="9_r4qll"]
 [ext_resource type="Script" path="res://Scripts/Cheat_Button.gd" id="11_nl6rp"]
+[ext_resource type="Texture2D" uid="uid://c6lxw8x3jpx8g" path="res://Sprites/Money_Panel.png" id="12_ocyw8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es0q7"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -32,7 +33,7 @@ script = ExtResource("1_122oa")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
-[node name="GameUI" type="Control" parent="."]
+[node name="GameUI" type="Control" parent="." node_paths=PackedStringArray("industries_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,21 +41,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_w1rmq")
+industries_container = NodePath("Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries")
 
 [node name="Background" type="TextureRect" parent="GameUI"]
 self_modulate = Color(0.564706, 0.564706, 0.564706, 1)
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.002
+offset_left = 1.0
+offset_right = -2.0
+offset_bottom = -1.29608
 texture = ExtResource("3_t2ept")
 expand_mode = 1
 
-[node name="Right_Panel" type="PanelContainer" parent="GameUI"]
-layout_mode = 2
+[node name="Money_Panel" type="NinePatchRect" parent="GameUI/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 287.0
+offset_top = 127.0
+offset_right = 1238.0
+offset_bottom = 1287.0
+grow_horizontal = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_ocyw8")
+region_rect = Rect2(-7.70251, -6.35913, 1040.52, 1044.31)
+patch_margin_left = 582
+patch_margin_top = 369
+patch_margin_right = 171
+patch_margin_bottom = 359
+
+[node name="Money_Text" type="Label" parent="GameUI/Background/Money_Panel"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 744.0
+offset_left = 460.0
+offset_top = 365.0
+offset_right = -180.0
+offset_bottom = -370.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 309
+text = "0€"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_6367c")
+
+[node name="Right_Panel" type="PanelContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -324.0
+offset_right = -2.0
+offset_bottom = 324.0
+grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_es0q7")
 
@@ -65,10 +111,10 @@ script = ExtResource("4_2afog")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 773.0
-offset_top = 85.0
-offset_right = -154.0
-offset_bottom = -507.0
+offset_left = 742.0
+offset_top = 89.0
+offset_right = -185.0
+offset_bottom = -503.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "+1€ por Click"
@@ -103,60 +149,149 @@ horizontal_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1011.0
-offset_top = 85.0
-offset_right = -34.0
-offset_bottom = -507.0
+offset_left = 980.0
+offset_top = 89.0
+offset_right = -65.0
+offset_bottom = -503.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "+1€ por Click"
 
-[node name="Industries" type="Node" parent="GameUI/Right_Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/Right_Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="Industry_Button" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 764.0
-offset_top = 186.0
-offset_right = -28.0
-offset_bottom = -410.0
+[node name="ScrollContainer" type="ScrollContainer" parent="GameUI/Right_Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 425)
+layout_mode = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
 
-[node name="Industry_Button2" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 764.0
-offset_top = 259.0
-offset_right = -28.0
-offset_bottom = -337.0
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 15
 
-[node name="Industry_Button3" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 764.0
-offset_top = 329.0
-offset_right = -28.0
-offset_bottom = -267.0
+[node name="Industries" type="VBoxContainer" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 
-[node name="Industry_Button4" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 764.0
-offset_top = 402.0
-offset_right = -28.0
-offset_bottom = -194.0
+[node name="Industry_Button" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Industry_Button5" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 766.0
-offset_top = 473.0
-offset_right = -26.0
-offset_bottom = -123.0
+[node name="Industry_Button2" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Industry_Button6" parent="GameUI/Right_Panel/Industries" instance=ExtResource("7_4780o")]
-offset_left = 768.0
-offset_top = 541.0
-offset_right = -24.0
-offset_bottom = -55.0
+[node name="Industry_Button3" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button4" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button5" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button6" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button7" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button8" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button9" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button10" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button11" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button12" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button13" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button14" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button15" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button16" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button17" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button18" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button19" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button20" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Industry_Button21" parent="GameUI/Right_Panel/MarginContainer/ScrollContainer/MarginContainer/Industries" instance=ExtResource("7_4780o")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Industries_Label" type="Label" parent="GameUI"]
 layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 742.0
-offset_top = 145.0
-offset_right = -2.0
-offset_bottom = -477.0
+offset_left = 717.0
+offset_top = 178.0
+offset_right = 1150.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Industries:"
@@ -191,19 +326,6 @@ emitting = false
 amount = 20
 process_material = ExtResource("7_3s7xe")
 texture = ExtResource("1_y62jt")
-
-[node name="Money_Text" type="Label" parent="GameUI"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 205.0
-offset_top = 146.0
-offset_right = 594.0
-offset_bottom = 226.0
-theme_override_font_sizes/font_size = 54
-text = "0€"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_6367c")
 
 [node name="Country_Label" type="Label" parent="GameUI"]
 layout_mode = 1
@@ -270,18 +392,11 @@ vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
 layout_mode = 0
-offset_left = 569.0
-offset_top = 594.0
-offset_right = 728.0
-offset_bottom = 633.0
+offset_left = 544.0
+offset_top = 601.0
+offset_right = 703.0
+offset_bottom = 640.0
 text = "Ganar mucha pasta"
 script = ExtResource("11_nl6rp")
 mantisa = 1.0
 exponente = 10
-
-[node name="VSlider" type="VSlider" parent="GameUI"]
-layout_mode = 0
-offset_left = 1130.0
-offset_top = 183.0
-offset_right = 1151.0
-offset_bottom = 620.0

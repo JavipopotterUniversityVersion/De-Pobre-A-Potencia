@@ -5,4 +5,4 @@ func _ready():
 	pass
 
 func _update_money(money:Big):
-	text = money.toAA() + "€" 
+	text = money.toAA()

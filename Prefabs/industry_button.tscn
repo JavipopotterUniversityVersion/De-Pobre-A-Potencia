@@ -1,36 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bksovloummcfb"]
+[gd_scene load_steps=3 format=3 uid="uid://bksovloummcfb"]
 
 [ext_resource type="Script" path="res://Scripts/Industry_Button.gd" id="1_be8uo"]
 [ext_resource type="Script" path="res://Scripts/Info_Panel.gd" id="2_45bxh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn1kr"]
-bg_color = Color(0.14902, 0.129412, 0.14902, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jtsc"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8d7r"]
-bg_color = Color(0.129412, 0.14902, 0.180392, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wsdi"]
-bg_color = Color(0.141176, 0.0823529, 0.0823529, 0.956863)
-
-[node name="Industry_Button" type="Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 772.0
-offset_top = 181.0
-offset_right = -20.0
-offset_bottom = -415.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.286275, 0.286275, 0.286275, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_gn1kr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3jtsc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_t8d7r")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_2wsdi")
+[node name="Button" type="Button"]
+anchors_preset = -1
+anchor_right = 0.385
+anchor_bottom = 0.148
+offset_right = -0.52002
+offset_bottom = 0.0960007
 script = ExtResource("1_be8uo")
 
 [node name="Panel" type="Panel" parent="."]
@@ -39,9 +17,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -19.0
-offset_top = 1.0
+offset_top = 2.0
 offset_right = -2.0
-offset_bottom = 19.0
+offset_bottom = 20.0
 grow_horizontal = 0
 script = ExtResource("2_45bxh")
 

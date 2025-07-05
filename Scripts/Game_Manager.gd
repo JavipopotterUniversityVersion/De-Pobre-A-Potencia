@@ -18,6 +18,9 @@ func _ready():
 func get_next_country_cost():
 	return Country_Data_Base.Get_next_country_cost(country_index)
 
+func get_current_country_name():
+	return Country_Data_Base.Get_country_name(country_index)
+
 func get_current_money():
 	return _current_money
 
