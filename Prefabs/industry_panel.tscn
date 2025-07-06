@@ -1,0 +1,238 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpav8gx1b6ynt"]
+
+[ext_resource type="PackedScene" uid="uid://bksovloummcfb" path="res://Prefabs/industry_button.tscn" id="1_f700g"]
+[ext_resource type="Texture2D" uid="uid://w7ppgaq2ajs8" path="res://Sprites/Banners/Advanced Robotics.png" id="2_1sbwo"]
+[ext_resource type="Texture2D" uid="uid://i4oxhq6cw46m" path="res://Sprites/Banners/Energy (Oil and Gas).png" id="3_cg3it"]
+[ext_resource type="Texture2D" uid="uid://blbeyrb1oisub" path="res://Sprites/Banners/Mechanical Workshop.png" id="4_8gbu3"]
+[ext_resource type="Texture2D" uid="uid://bfwiarcqghgp0" path="res://Sprites/Banners/Big Tech and Space.png" id="5_yb8au"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 2.574
+anchor_bottom = 3.701
+offset_right = 41.752
+offset_bottom = 33.752
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 1020.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("3_cg3it")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect7" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("4_8gbu3")
+region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
+patch_margin_left = 271
+patch_margin_top = 139
+patch_margin_right = 214
+patch_margin_bottom = 252
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect6" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("5_yb8au")
+region_rect = Rect2(-17.7599, 97.0499, 534.82, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect8" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("3_cg3it")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect12" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("4_8gbu3")
+region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
+patch_margin_left = 271
+patch_margin_top = 139
+patch_margin_right = 214
+patch_margin_bottom = 252
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect13" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("5_yb8au")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect14" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect15" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect16" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("2_1sbwo")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect17" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("3_cg3it")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect18" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("4_8gbu3")
+region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
+patch_margin_left = 271
+patch_margin_top = 139
+patch_margin_right = 214
+patch_margin_bottom = 252
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect19" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
+custom_minimum_size = Vector2(1500, 0)
+layout_mode = 2
+texture = ExtResource("5_yb8au")
+region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+patch_margin_left = 262
+patch_margin_top = 97
+patch_margin_right = 214
+patch_margin_bottom = 189
+axis_stretch_horizontal = 1

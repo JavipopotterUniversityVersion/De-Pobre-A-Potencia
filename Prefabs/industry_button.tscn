@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Industry_Button.gd" id="1_be8uo"]
 [ext_resource type="Texture2D" uid="uid://ciaygw4rrgopm" path="res://Sprites/Banners/Fishing.png" id="1_t0lci"]
-[ext_resource type="Script" path="res://Scripts/Info_Panel.gd" id="2_45bxh"]
 [ext_resource type="Script" path="res://Scenes/Get_Parent_Description.gd" id="3_xevyl"]
+[ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="4_vgp82"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp7t"]
 
@@ -40,16 +40,17 @@ script = ExtResource("1_be8uo")
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.386
-anchor_right = 1.0
-anchor_bottom = -0.386
-offset_left = 307.0
-offset_top = 558.318
-offset_right = -94.24
-offset_bottom = 897.318
+anchor_left = 0.038
+anchor_top = 0.067
+anchor_right = 0.942
+anchor_bottom = 0.888
+offset_left = 36.098
+offset_top = 60.2568
+offset_right = 0.481934
+offset_bottom = -48.4471
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 190
+theme_override_font_sizes/font_size = 75
 text = "Fishing"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -62,6 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_orp7t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1m0ws")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgrfo")
@@ -69,30 +71,15 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_a2rcs")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m8cgd")
 script = ExtResource("3_xevyl")
 
-[node name="Panel" type="Panel" parent="Button"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.946
-anchor_top = 0.082
-anchor_right = 0.946
-anchor_bottom = 0.082
-offset_left = -15.0341
-offset_top = 30.834
-offset_right = 94.9659
-offset_bottom = 120.834
-grow_horizontal = 0
-script = ExtResource("2_45bxh")
-
-[node name="Label" type="Label" parent="Button/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -3.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 90
-text = "i"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Info_Icon" parent="." instance=ExtResource("4_vgp82")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1401.0
+offset_top = 72.076
+offset_right = 1511.0
+offset_bottom = 162.076
+grow_horizontal = 1

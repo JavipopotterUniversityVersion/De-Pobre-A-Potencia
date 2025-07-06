@@ -4,16 +4,27 @@ var _industries = []
 var _coin:TextureButton
 var background:TextureRect
 
+var total_revenue:Big
+var total_revenue_label:Label
+
 func _ready():
+	total_revenue_label = get_node("total_revenue_label")
 	background = get_node("Background")
-	_industries = industries_container.get_children()
+	_industries = industries_container.get_node("ScrollContainer/VBoxContainer").get_children()
 	
-	for i in range(0,4):
+	for i in range(0,19):
 		var data = Country_Data_Base.Get_industry_data(i)
-		_industries[i].get_node("Scaler/Industry_Button").set_industry(data)
+		_industries[i].on_revenue_change.connect(func():
+			total_revenue = Big.new(0)
+			for industry in _industries:
+				total_revenue = Big.add(total_revenue, industry._revenue)
+				total_revenue_label.text = total_revenue.toAA() + "€/min")
+				
+		_industries[i].set_industry(data, )
 	
 	_coin = get_node("Coin_Button")
 	GameManager.on_country_changed.connect(_update_country)
+	GameManager.assign_info_panel(get_node("Info_Panel"))
 
 func _update_country(country_index:int):
 	var country_name = Country_Data_Base.Get_country_name(country_index)
@@ -22,4 +33,4 @@ func _update_country(country_index:int):
 	
 	Country_Data_Base.Set_Country(country_name, _coin)
 	var data = Country_Data_Base.Get_industry_data(country_index)
-	_industries[country_index].get_node("Scaler/Industry_Button").set_industry(data, false)
+	_industries[country_index].set_industry(data, false)

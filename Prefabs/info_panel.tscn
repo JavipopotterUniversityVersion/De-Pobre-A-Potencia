@@ -2,23 +2,20 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5uf1"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
-layer = 2
-
-[node name="Info_Panel" type="Panel" parent="."]
+[node name="Info_Panel" type="Panel"]
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
 anchor_left = -0.059
 anchor_top = -0.051
 anchor_right = 0.066
 anchor_bottom = 0.059
-offset_left = 7.968
+offset_left = -871.032
 offset_top = -0.952
 offset_right = 7.968
-offset_bottom = -1.232
+offset_bottom = 390.768
 theme_override_styles/panel = SubResource("StyleBoxFlat_m5uf1")
 
-[node name="Description" type="Label" parent="Info_Panel"]
+[node name="Description" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,5 +24,8 @@ offset_right = 1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 90
 text = "Skibdi toilet loremsad"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3

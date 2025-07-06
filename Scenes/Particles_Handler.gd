@@ -7,7 +7,7 @@ func _ready():
 	GameManager.on_country_changed.connect(_on_country_changed)
 
 func emit():
-	particles.global_position = get_viewport().get_mouse_position()
+	particles.global_position = get_viewport().get_mouse_position() * 4.33
 	particles.emitting = true
 	await get_tree().create_timer(0.1).timeout
 	particles.emitting = false

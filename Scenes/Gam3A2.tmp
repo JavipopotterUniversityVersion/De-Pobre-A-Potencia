@@ -31,11 +31,6 @@ bg_color = Color(0.623529, 0.545098, 0.266667, 1)
 [node name="GameScene" type="Node"]
 script = ExtResource("1_122oa")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2511, 1412)
-offset = Vector2(0.465, 0)
-zoom = Vector2(0.233, 0.233)
-
 [node name="GameUI" type="Control" parent="." node_paths=PackedStringArray("industries_container")]
 layout_mode = 3
 anchor_right = 8.968
@@ -64,10 +59,10 @@ expand_mode = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 1288.0
-offset_top = 261.0
-offset_right = -1920.0
-offset_bottom = 1305.0
+offset_left = 1089.0
+offset_top = 248.0
+offset_right = -2119.0
+offset_bottom = 1292.0
 grow_horizontal = 2
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("12_ocyw8")
@@ -185,10 +180,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 587.0
-offset_top = 780.0
-offset_right = -1286.0
-offset_bottom = -345.998
+offset_left = 389.0
+offset_top = 601.0
+offset_right = -1137.0
+offset_bottom = 103.0
 scale = Vector2(0.72, 0.72)
 pivot_offset = Vector2(322.222, 179.167)
 texture_normal = ExtResource("1_y62jt")
@@ -214,10 +209,10 @@ texture = ExtResource("1_y62jt")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_left = 256.0
-offset_top = 69.0
-offset_right = -1505.0
-offset_bottom = 585.0
+offset_left = 57.0
+offset_top = 56.0
+offset_right = -1704.0
+offset_bottom = 572.0
 theme_override_font_sizes/font_size = 200
 text = "Burundi"
 horizontal_alignment = 1
@@ -286,23 +281,17 @@ script = ExtResource("11_nl6rp")
 mantisa = 1.0
 exponente = 10
 
+[node name="Camera2D" type="Camera2D" parent="GameUI"]
+position = Vector2(2511, 1412)
+offset = Vector2(0.465, 0)
+zoom = Vector2(0.233, 0.233)
+
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
 layout_mode = 1
-offset_left = -1321.71
-offset_top = 37.6669
-offset_right = -869.208
-offset_bottom = 152.797
-
-[node name="total_revenue_label" type="Label" parent="GameUI"]
-layout_mode = 0
-offset_left = 1346.0
-offset_top = 743.0
-offset_right = 2385.0
-offset_bottom = 877.0
-theme_override_font_sizes/font_size = 90
-text = "0€/min"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -1368.71
+offset_top = 109.667
+offset_right = 234.292
+offset_bottom = 889.387
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
 [editable path="GameUI/Right_Panel/Industries"]
