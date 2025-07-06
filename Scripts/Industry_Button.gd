@@ -1,4 +1,4 @@
-extends Button
+extends NinePatchRect
 class_name Industry_Button
 
 var _is_bought:bool
@@ -7,10 +7,19 @@ var _level:int
 var _upgrade_cost:Big
 var _revenue:Big
 var _original_revenue:Big
+var _text
+var disabled:bool
 
 func _ready():
 	disabled = true
-	button_up.connect(_on_press)
+	_text = get_node("Label")
+	$Button.button_up.connect(_on_press)
+
+	$Button.mouse_entered.connect(func(): 
+		modulate = Color(0.7,0.7,0.7,1))
+		
+	$Button.mouse_exited.connect(func(): 
+		modulate = Color(1,1,1,1))
 
 func set_industry(data, inactive = true):
 	disabled = inactive
@@ -41,14 +50,14 @@ func _upgrade():
 
 func _update_text():
 	if disabled:
-		text = "?"
+		_text.text = "?"
 	else:
-		text = _industry_name + "\n"
+		_text.text = _industry_name + "\n"
 #		 + " " + _revenue.toAA() + "€/min\n"
 		if(_is_bought):
-			text = text + "Upgrade: " + _upgrade_cost.toAA() + "€"
+			_text.text = _text.text + "Upgrade: " + _upgrade_cost.toAA() + "€"
 		else:
-			text = text + "Buy: " + _upgrade_cost.toAA() +  "€"
+			_text.text = _text.text + "Buy: " + _upgrade_cost.toAA() +  "€"
 
 func get_description():
 	return "Generate " + _revenue.toAA() + "€/min"

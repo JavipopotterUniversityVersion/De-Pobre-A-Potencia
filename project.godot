@@ -23,7 +23,6 @@ TweensDataBase="*res://Scripts/Tweens_DataBase.gd"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [rendering]
 

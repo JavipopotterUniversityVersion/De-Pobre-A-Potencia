@@ -8,9 +8,9 @@ func _ready():
 	background = get_node("Background")
 	_industries = industries_container.get_children()
 	
-	for i in range(0,6):
+	for i in range(0,4):
 		var data = Country_Data_Base.Get_industry_data(i)
-		_industries[i].set_industry(data)
+		_industries[i].get_node("Scaler/Industry_Button").set_industry(data)
 	
 	_coin = get_node("Coin_Button")
 	GameManager.on_country_changed.connect(_update_country)
@@ -22,4 +22,4 @@ func _update_country(country_index:int):
 	
 	Country_Data_Base.Set_Country(country_name, _coin)
 	var data = Country_Data_Base.Get_industry_data(country_index)
-	_industries[country_index].set_industry(data, false)
+	_industries[country_index].get_node("Scaler/Industry_Button").set_industry(data, false)
