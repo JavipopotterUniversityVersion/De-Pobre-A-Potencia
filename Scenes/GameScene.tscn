@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=23 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/Cheat_Button.gd" id="11_nl6rp"]
 [ext_resource type="Texture2D" uid="uid://c6lxw8x3jpx8g" path="res://Sprites/Money_Panel.png" id="12_ocyw8"]
 [ext_resource type="PackedScene" uid="uid://cr3pak7l37jx5" path="res://Prefabs/info_panel.tscn" id="18_wjmln"]
+[ext_resource type="Script" path="res://Scripts/Bonus_Button.gd" id="19_jofh6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es0q7"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -303,6 +304,16 @@ theme_override_font_sizes/font_size = 90
 text = "0€/min"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Bonus_Button" type="Button" parent="GameUI"]
+layout_mode = 0
+offset_left = 3104.0
+offset_top = 46.0
+offset_right = 3349.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 90
+text = "x2"
+script = ExtResource("19_jofh6")
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
 [editable path="GameUI/Right_Panel/Industries"]
