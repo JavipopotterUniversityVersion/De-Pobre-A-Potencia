@@ -22,14 +22,14 @@ func _ready():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/min")
+				total_revenue_label.text = total_revenue.toAA() + "€/s")
 				
 	GameManager.on_bonus_active.connect(
 		func():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/min"
+				total_revenue_label.text = total_revenue.toAA() + "€/s"
 			total_revenue = Big.times(total_revenue, 2))
 	
 	GameManager.on_bonus_deactive.connect(
@@ -37,7 +37,7 @@ func _ready():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/min")
+				total_revenue_label.text = total_revenue.toAA() + "€/s")
 	
 	_coin = get_node("Coin_Button")
 	GameManager.on_country_changed.connect(_update_country)

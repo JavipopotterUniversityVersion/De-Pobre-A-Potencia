@@ -36,7 +36,7 @@ func set_industry(data, inactive = true):
 	_level = 0
 	_industry_name = data.name
 	_upgrade_cost = data.cost
-	_original_revenue = data.revenue
+	_original_revenue = Big.roundDown(Big.division(data.revenue, 60))
 	_update_text()
 
 func _on_press():
@@ -52,7 +52,7 @@ func _buy():
 	_revenue = _original_revenue
 	_update_text()
 	while(_is_bought):
-		await get_tree().create_timer(60).timeout
+		await get_tree().create_timer(1).timeout
 		GameManager.add_money(_revenue)
 
 func _upgrade():
@@ -72,6 +72,6 @@ func _update_text():
 			_text.text = _text.text + "Buy: " + _upgrade_cost.toAA() +  "€"
 
 func get_description():
-	return "Generate " + _revenue.toAA() + "€/min"
+	return "Generate " + _revenue.toAA() + "€/s"
 
 
