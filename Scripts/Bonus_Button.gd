@@ -1,11 +1,7 @@
 extends Button
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	button_up.connect(_execute_bonus)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _execute_bonus():
+	CrazySDK.show_rewarded_ad(GameManager.start_bonus)

@@ -11,5 +11,6 @@ func _check_next_country(amount:Big):
 
 func _buy_country():
 	if(GameManager.try_buy(GameManager.get_next_country_cost())):
+		CrazySDK.show_midgame_ad()
 		GameManager.upgrade_country()
 		visible = false

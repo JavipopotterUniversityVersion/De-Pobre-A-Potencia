@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=35 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cpav8gx1b6ynt" path="res://Prefabs/industry_panel.tscn" id="6_2vypl"]
 [ext_resource type="Script" path="res://Scenes/Particles_Handler.gd" id="6_iafb5"]
 [ext_resource type="Material" uid="uid://cchaumc4pxwhn" path="res://Particles/Money_Particles.tres" id="7_3s7xe"]
+[ext_resource type="Texture2D" uid="uid://ddudc7j7oqr7o" path="res://Sprites/Banners/Click.png" id="7_envlq"]
 [ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="8_gsxym"]
 [ext_resource type="Script" path="res://Scripts/Progress_Bar.gd" id="8_ws3e0"]
 [ext_resource type="Texture2D" uid="uid://tndtaw32bp8g" path="res://Sprites/Upgrade_Button.png" id="9_eojcb"]
@@ -19,15 +20,52 @@
 [ext_resource type="Texture2D" uid="uid://c6lxw8x3jpx8g" path="res://Sprites/Money_Panel.png" id="12_ocyw8"]
 [ext_resource type="PackedScene" uid="uid://cr3pak7l37jx5" path="res://Prefabs/info_panel.tscn" id="18_wjmln"]
 [ext_resource type="Script" path="res://Scripts/Bonus_Button.gd" id="19_jofh6"]
+[ext_resource type="Texture2D" uid="uid://uw5ox0rx38v0" path="res://Sprites/Banners/Bonus.png" id="19_mfp28"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es0q7"]
 bg_color = Color(0, 0, 0, 0.478431)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atplg"]
+texture = ExtResource("7_envlq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yq6jh"]
+texture = ExtResource("7_envlq")
+modulate_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u2hca"]
+texture = ExtResource("7_envlq")
+modulate_color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vse0w"]
+texture = ExtResource("7_envlq")
+modulate_color = Color(1, 1, 1, 0.592157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syofd"]
+texture = ExtResource("7_envlq")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx8bm"]
 bg_color = Color(0, 0, 0, 0.509804)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xvnl"]
 bg_color = Color(0.623529, 0.545098, 0.266667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lj0c"]
+texture = ExtResource("19_mfp28")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_as1j3"]
+texture = ExtResource("19_mfp28")
+modulate_color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxun2"]
+texture = ExtResource("19_mfp28")
+modulate_color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnm83"]
+texture = ExtResource("19_mfp28")
+modulate_color = Color(1, 1, 1, 0.462745)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7tly"]
+texture = ExtResource("19_mfp28")
 
 [node name="GameScene" type="Node"]
 script = ExtResource("1_122oa")
@@ -46,7 +84,7 @@ offset_bottom = -3022.13
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_w1rmq")
-industries_container = NodePath("Right_Panel/Industries")
+industries_container = NodePath("Right_Panel/Control")
 
 [node name="Background" type="TextureRect" parent="GameUI"]
 self_modulate = Color(0.564706, 0.564706, 0.564706, 1)
@@ -116,12 +154,19 @@ script = ExtResource("4_2afog")
 
 [node name="coin_value_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 582.0
-offset_right = 914.0
-offset_bottom = 756.0
+offset_left = 234.003
+offset_top = 229.001
+offset_right = 829.003
+offset_bottom = 752.001
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
-text = "safdsaf"
+theme_override_styles/normal = SubResource("StyleBoxTexture_atplg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yq6jh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u2hca")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vse0w")
+theme_override_styles/focus = SubResource("StyleBoxTexture_syofd")
+text = "safdsafafswdsf"
 script = ExtResource("4_jf5gr")
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/AddClickButton/coin_value_button" instance=ExtResource("8_gsxym")]
@@ -134,10 +179,11 @@ grow_horizontal = 1
 
 [node name="upgrade_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
-offset_left = 963.0
-offset_top = 587.0
-offset_right = 1561.0
-offset_bottom = 756.0
+offset_left = 879.003
+offset_top = 281.001
+offset_right = 1477.0
+offset_bottom = 450.001
+focus_mode = 0
 theme_override_font_sizes/font_size = 90
 text = "safdsaf"
 
@@ -146,27 +192,145 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.289
-offset_top = 395.0
-offset_right = -3.0
-offset_bottom = -297.315
+offset_left = 3.00342
+offset_top = 93.001
+offset_right = 0.00341797
+offset_bottom = -599.314
 theme_override_font_sizes/font_size = 90
 text = "Click:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Industries" parent="GameUI/Right_Panel" instance=ExtResource("6_2vypl")]
+[node name="Control" parent="GameUI/Right_Panel" instance=ExtResource("6_2vypl")]
+custom_minimum_size = Vector2(1880, 1800)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="ScrollContainer" parent="GameUI/Right_Panel/Industries" index="0"]
-custom_minimum_size = Vector2(0, 1500)
-anchors_preset = 12
-anchor_top = 1.0
-offset_left = 28.0
-offset_top = -1862.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_vertical = 0
+[node name="ScrollContainer" parent="GameUI/Right_Panel/Control" index="0"]
+offset_right = 1877.0
+offset_bottom = 1789.0
+
+[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer" index="0"]
+patch_margin_bottom = 265
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect" index="2"]
+offset_left = 1717.0
+offset_top = 39.001
+offset_right = 1827.0
+
+[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2" index="0"]
+patch_margin_top = 205
+patch_margin_bottom = 240
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect" index="2"]
+offset_left = 1712.0
+offset_right = 1822.0
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4" index="0"]
+patch_margin_bottom = 182
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect" index="2"]
+offset_left = 1678.0
+offset_top = 84.001
+offset_right = 1788.0
+offset_bottom = 174.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect" index="2"]
+offset_left = 1679.0
+offset_top = 69.001
+offset_right = 1789.0
+offset_bottom = 159.001
 
 [node name="Industries_Label" type="Label" parent="GameUI"]
 layout_mode = 2
@@ -276,6 +440,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
+visible = false
 layout_mode = 0
 offset_left = 2436.0
 offset_top = 2563.0
@@ -307,13 +472,36 @@ vertical_alignment = 1
 
 [node name="Bonus_Button" type="Button" parent="GameUI"]
 layout_mode = 0
-offset_left = 3104.0
-offset_top = 46.0
-offset_right = 3349.0
-offset_bottom = 236.0
+offset_left = 2494.0
+offset_top = -73.0
+offset_right = 3155.0
+offset_bottom = 366.0
 theme_override_font_sizes/font_size = 90
-text = "x2"
+theme_override_styles/normal = SubResource("StyleBoxTexture_4lj0c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_as1j3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vxun2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bnm83")
+theme_override_styles/focus = SubResource("StyleBoxTexture_v7tly")
 script = ExtResource("19_jofh6")
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
-[editable path="GameUI/Right_Panel/Industries"]
+[editable path="GameUI/Right_Panel/Control"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect"]

@@ -10,17 +10,34 @@ var total_revenue_label:Label
 func _ready():
 	total_revenue_label = get_node("total_revenue_label")
 	background = get_node("Background")
-	_industries = industries_container.get_node("ScrollContainer/VBoxContainer").get_children()
+	var industries_temp = industries_container.get_node("ScrollContainer/VBoxContainer").get_children()
+	
+	for value in industries_temp:
+		_industries.push_back(value.get_child(0))
 	
 	for i in range(0,19):
 		var data = Country_Data_Base.Get_industry_data(i)
+		_industries[i].set_industry(data)
 		_industries[i].on_revenue_change.connect(func():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
 				total_revenue_label.text = total_revenue.toAA() + "€/min")
 				
-		_industries[i].set_industry(data, )
+	GameManager.on_bonus_active.connect(
+		func():
+			total_revenue = Big.new(0)
+			for industry in _industries:
+				total_revenue = Big.add(total_revenue, industry._revenue)
+				total_revenue_label.text = total_revenue.toAA() + "€/min"
+			total_revenue = Big.times(total_revenue, 2))
+	
+	GameManager.on_bonus_deactive.connect(
+		func():
+			total_revenue = Big.new(0)
+			for industry in _industries:
+				total_revenue = Big.add(total_revenue, industry._revenue)
+				total_revenue_label.text = total_revenue.toAA() + "€/min")
 	
 	_coin = get_node("Coin_Button")
 	GameManager.on_country_changed.connect(_update_country)

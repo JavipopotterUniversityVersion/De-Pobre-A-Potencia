@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpav8gx1b6ynt"]
+[gd_scene load_steps=20 format=3 uid="uid://cpav8gx1b6ynt"]
 
 [ext_resource type="PackedScene" uid="uid://bksovloummcfb" path="res://Prefabs/industry_button.tscn" id="1_f700g"]
 [ext_resource type="Texture2D" uid="uid://w7ppgaq2ajs8" path="res://Sprites/Banners/Advanced Robotics.png" id="2_1sbwo"]
 [ext_resource type="Texture2D" uid="uid://i4oxhq6cw46m" path="res://Sprites/Banners/Energy (Oil and Gas).png" id="3_cg3it"]
+[ext_resource type="Texture2D" uid="uid://c6rv8lgosdsgp" path="res://Sprites/Banners/Crafts.png" id="3_nbkmi"]
 [ext_resource type="Texture2D" uid="uid://blbeyrb1oisub" path="res://Sprites/Banners/Mechanical Workshop.png" id="4_8gbu3"]
+[ext_resource type="Texture2D" uid="uid://ioaf6nkx35h4" path="res://Sprites/Banners/Street Food.png" id="5_di2j7"]
 [ext_resource type="Texture2D" uid="uid://bfwiarcqghgp0" path="res://Sprites/Banners/Big Tech and Space.png" id="5_yb8au"]
+[ext_resource type="Texture2D" uid="uid://kn5q05fpyemg" path="res://Sprites/Banners/Media.png" id="6_dbunc"]
+[ext_resource type="Texture2D" uid="uid://bda7a3b7ft04u" path="res://Sprites/Banners/Gastronomy.png" id="7_lwgnx"]
+[ext_resource type="Texture2D" uid="uid://dv862qdbjqrak" path="res://Sprites/Banners/Tourism.png" id="8_8m4pu"]
+[ext_resource type="Texture2D" uid="uid://d28fejkef1xdm" path="res://Sprites/Banners/Weaponry.png" id="9_tc3d2"]
+[ext_resource type="Texture2D" uid="uid://1qxj87hyxqt3" path="res://Sprites/Banners/Luxury Cars.png" id="10_7c7hs"]
+[ext_resource type="Texture2D" uid="uid://cybcfqjbfmrre" path="res://Sprites/Banners/Product Export.png" id="11_l3krk"]
+[ext_resource type="Texture2D" uid="uid://dkffa8pb35vqn" path="res://Sprites/Banners/Entertainment and Finance.png" id="12_v61of"]
+[ext_resource type="Texture2D" uid="uid://bto5gbtbfuscr" path="res://Sprites/Banners/Tech Mining.png" id="13_gdnwq"]
+[ext_resource type="Texture2D" uid="uid://03hex6jsk7wn" path="res://Sprites/Banners/Videogames and Robotics.png" id="14_e55c0"]
+[ext_resource type="Texture2D" uid="uid://nfm02v0qvlsq" path="res://Sprites/Banners/Private Banking.png" id="16_8pac2"]
+[ext_resource type="Texture2D" uid="uid://de4rfwwgwywtp" path="res://Sprites/Banners/Luxury Real State.png" id="17_tnnyf"]
+[ext_resource type="Texture2D" uid="uid://cyuc87voe8qjo" path="res://Sprites/Banners/Financial Sector and Tax Regime.png" id="20_r3kp8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,223 +30,411 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 48.0
-offset_bottom = 1020.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 1983.0
+offset_bottom = 2921.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/separation = 10
 
-[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer" instance=ExtResource("1_f700g")]
+layout_mode = 2
+region_rect = Rect2(7.10303, 32.2493, 502.393, 449.954)
 patch_margin_left = 262
-patch_margin_top = 97
+patch_margin_top = 216
 patch_margin_right = 214
-patch_margin_bottom = 189
+patch_margin_bottom = 197
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("3_cg3it")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer2" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("3_nbkmi")
+region_rect = Rect2(5.69397, 46.3971, 489.596, 384.911)
+patch_margin_left = 256
+patch_margin_top = 180
+patch_margin_right = 290
+patch_margin_bottom = 236
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect7" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect" index="2"]
+offset_left = 1817.0
+offset_top = 148.0
+offset_right = 1927.0
+offset_bottom = 238.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer3" instance=ExtResource("1_f700g")]
 layout_mode = 2
 texture = ExtResource("4_8gbu3")
-region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
-patch_margin_left = 271
-patch_margin_top = 139
-patch_margin_right = 214
-patch_margin_bottom = 252
+region_rect = Rect2(56.2489, 179.531, 941.53, 661.405)
+patch_margin_left = 402
+patch_margin_top = 230
+patch_margin_right = 425
+patch_margin_bottom = 291
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect6" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer4" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer4" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("5_di2j7")
+region_rect = Rect2(61.8459, 167.954, 908.883, 647.365)
+patch_margin_left = 455
+patch_margin_top = 214
+patch_margin_right = 471
+patch_margin_bottom = 304
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer5" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer5" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("6_dbunc")
+region_rect = Rect2(53.2716, 116.06, 911.026, 772.055)
+patch_margin_left = 400
+patch_margin_top = 346
+patch_margin_right = 544
+patch_margin_bottom = 179
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer6" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer6" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("7_lwgnx")
+region_rect = Rect2(20.7805, 31.8603, 470.691, 274.67)
+patch_margin_left = 261
+patch_margin_top = 149
+patch_margin_right = 347
+patch_margin_bottom = 162
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer7" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer7" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("8_8m4pu")
+region_rect = Rect2(20.1007, 51.5098, 456.5, 332.2)
+patch_margin_left = 267
+patch_margin_top = 137
+patch_margin_right = 271
+patch_margin_bottom = 206
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer8" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer8" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("9_tc3d2")
+region_rect = Rect2(12.5465, 44.9702, 482.727, 220.22)
+patch_margin_left = 272
+patch_margin_top = 129
+patch_margin_right = 266
+patch_margin_bottom = 115
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer9" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer9" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("10_7c7hs")
+region_rect = Rect2(-3.30573, 47.3249, 499.091, 235.455)
+patch_margin_left = 261
+patch_margin_top = 74
+patch_margin_right = 251
+patch_margin_bottom = 171
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer10" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer10" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("11_l3krk")
+region_rect = Rect2(19.5, 94.8494, 482.001, 326.7)
+patch_margin_left = 259
+patch_margin_top = 195
+patch_margin_right = 252
+patch_margin_bottom = 160
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer11" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer11" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("12_v61of")
+region_rect = Rect2(0.910248, 11.55, 502.15, 301.29)
+patch_margin_left = 285
+patch_margin_top = 196
+patch_margin_right = 285
+patch_margin_bottom = 137
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect" index="2"]
+offset_left = 1821.0
+offset_top = 54.0
+offset_right = 1931.0
+offset_bottom = 144.0
+
+[node name="PanelContainer12" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer12" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("13_gdnwq")
+region_rect = Rect2(45.901, 62.6482, 411.571, 219.008)
+patch_margin_left = 244
+patch_margin_top = 63
+patch_margin_right = 244
+patch_margin_bottom = 158
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer13" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer13" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("14_e55c0")
+region_rect = Rect2(4.02039, 16.0501, 502.151, 317.02)
+patch_margin_left = 274
+patch_margin_top = 164
+patch_margin_right = 264
+patch_margin_bottom = 179
+axis_stretch_horizontal = 1
+
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer14" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer14" instance=ExtResource("1_f700g")]
 layout_mode = 2
 texture = ExtResource("5_yb8au")
-region_rect = Rect2(-17.7599, 97.0499, 534.82, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+region_rect = Rect2(-17.8416, 119.573, 563.014, 279.51)
+patch_margin_left = 390
+patch_margin_top = 146
+patch_margin_right = 364
+patch_margin_bottom = 172
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect8" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer15" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
 
-[node name="NinePatchRect9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer15" instance=ExtResource("1_f700g")]
 layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+texture = ExtResource("16_8pac2")
+region_rect = Rect2(9.1127, 145.387, 489.01, 244.505)
+patch_margin_left = 304
+patch_margin_top = 102
+patch_margin_right = 322
+patch_margin_bottom = 151
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer16" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer16" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("17_tnnyf")
+region_rect = Rect2(4.40027, 24.2001, 479.601, 282.7)
+patch_margin_left = 314
+patch_margin_top = 128
+patch_margin_right = 322
+patch_margin_bottom = 157
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer17" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer17" instance=ExtResource("1_f700g")]
 layout_mode = 2
 texture = ExtResource("3_cg3it")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+region_rect = Rect2(6.19034, 117.62, 511.831, 291.61)
+patch_margin_left = 249
+patch_margin_top = 95
+patch_margin_right = 293
+patch_margin_bottom = 210
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect12" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer18" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("4_8gbu3")
-region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
-patch_margin_left = 271
-patch_margin_top = 139
-patch_margin_right = 214
-patch_margin_bottom = 252
-axis_stretch_horizontal = 1
 
-[node name="NinePatchRect13" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("5_yb8au")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect14" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer18" instance=ExtResource("1_f700g")]
 layout_mode = 2
 texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+region_rect = Rect2(21.1382, 97.0795, 471.236, 283.45)
+patch_margin_left = 239
+patch_margin_top = 107
+patch_margin_right = 265
+patch_margin_bottom = 185
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect15" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
+
+[node name="PanelContainer19" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
+
+[node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer19" instance=ExtResource("1_f700g")]
+layout_mode = 2
+texture = ExtResource("20_r3kp8")
+region_rect = Rect2(22.7705, 103.75, 474.321, 296.45)
+patch_margin_left = 310
+patch_margin_top = 125
+patch_margin_right = 224
+patch_margin_bottom = 182
 axis_stretch_horizontal = 1
 
-[node name="NinePatchRect2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
+[node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect" index="2"]
+offset_left = 1822.0
+offset_top = 39.0
+offset_right = 1932.0
+offset_bottom = 129.0
 
-[node name="NinePatchRect3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect16" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("2_1sbwo")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect17" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("3_cg3it")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect18" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("4_8gbu3")
-region_rect = Rect2(23.1458, 45.5621, 478.393, 400.851)
-patch_margin_left = 271
-patch_margin_top = 139
-patch_margin_right = 214
-patch_margin_bottom = 252
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect19" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_f700g")]
-custom_minimum_size = Vector2(1500, 0)
-layout_mode = 2
-texture = ExtResource("5_yb8au")
-region_rect = Rect2(-11.3003, 97.0499, 510.4, 286)
-patch_margin_left = 262
-patch_margin_top = 97
-patch_margin_right = 214
-patch_margin_bottom = 189
-axis_stretch_horizontal = 1
+[editable path="ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect"]
+[editable path="ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect"]

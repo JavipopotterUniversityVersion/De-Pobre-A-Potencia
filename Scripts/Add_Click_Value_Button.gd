@@ -33,10 +33,10 @@ func _upgrade():
 		_update_coin_value_button()
 
 func _update_coin_value_button():
-	coin_value_button.text = "Comprar x" + number_of_clicks_to_buy.toAA() + ": " + click_value_cost.toMetricName() + "€"
+	coin_value_button.text = "Buy x" + number_of_clicks_to_buy.toAA() + ":\n" + click_value_cost.toAA() + "€"
 
 func _update_upgrade_button():
-	upgrade_button.text = "Mejorar: " + upgrade_cost.toAA() + "€"
+	upgrade_button.text = "Upgrade: " + upgrade_cost.toAA() + "€"
 
 func get_description():
 	return "Generate " + GameManager._coin_button_value.toAA() + "€/click"

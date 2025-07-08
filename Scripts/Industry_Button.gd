@@ -18,13 +18,21 @@ func _ready():
 	$Button.disabled = true
 
 	$Button.mouse_entered.connect(func(): 
-		modulate = Color(0.7,0.7,0.7,1))
+		if !$Button.disabled:
+			modulate = Color(0.7,0.7,0.7,1))
 		
 	$Button.mouse_exited.connect(func(): 
-		modulate = Color(1,1,1,1))
+		if !$Button.disabled:
+			modulate = Color(1,1,1,1))
 
 func set_industry(data, inactive = true):
 	$Button.disabled = inactive
+	
+	if inactive:
+		modulate = Color.DIM_GRAY
+	else:
+		modulate = Color.WHITE
+		
 	_level = 0
 	_industry_name = data.name
 	_upgrade_cost = data.cost
@@ -42,6 +50,7 @@ func _on_press():
 func _buy():
 	_is_bought = true
 	_revenue = _original_revenue
+	_update_text()
 	while(_is_bought):
 		await get_tree().create_timer(60).timeout
 		GameManager.add_money(_revenue)

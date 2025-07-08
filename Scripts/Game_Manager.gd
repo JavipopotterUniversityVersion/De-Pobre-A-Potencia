@@ -3,11 +3,22 @@ extends Node
 signal on_money_changed
 signal on_country_changed
 
+signal on_bonus_active
+signal on_bonus_deactive
+
 var _current_money:Big = Big.new(0)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
 
 var info_panel
+var bonus_active
+
+func start_bonus():
+	bonus_active = true
+	emit_signal("on_bonus_active")
+	await get_tree().create_timer(500).timeout
+	emit_signal("on_bonus_deactive")
+	bonus_active = false
 
 func assign_info_panel(panel):
 	info_panel = panel
@@ -40,10 +51,12 @@ func try_buy(amount:Big):
 	return bought
 
 func add_button_money():
-	_current_money = Big.add(_current_money, _coin_button_value)
+	add_money(_coin_button_value)
 	emit_signal("on_money_changed", _current_money)
 
 func add_money(amount:Big):
+	if(bonus_active):
+		amount = Big.times(amount, 2)
 	_current_money = Big.add(_current_money, amount)
 	emit_signal("on_money_changed", _current_money)
 
