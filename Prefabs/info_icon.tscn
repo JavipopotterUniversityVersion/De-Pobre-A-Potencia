@@ -13,6 +13,7 @@ offset_top = -3.65446
 offset_right = 123.966
 offset_bottom = 86.3456
 grow_horizontal = 0
+focus_mode = 1
 script = ExtResource("1_18th7")
 
 [node name="Label" type="Label" parent="."]

@@ -8,6 +8,8 @@ func _ready():
 func _check_next_country(amount:Big):
 	if(amount.isGreaterThanOrEqualTo(GameManager.get_next_country_cost())):
 		visible = true
+	else:
+		visible = false
 
 func _buy_country():
 	if(GameManager.try_buy(GameManager.get_next_country_cost())):
