@@ -6,6 +6,9 @@ signal on_country_changed
 signal on_bonus_active
 signal on_bonus_deactive
 
+signal on_load_data
+signal on_save_data
+
 var _current_money:Big = Big.new(0)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
@@ -16,7 +19,7 @@ var bonus_active
 func start_bonus():
 	bonus_active = true
 	emit_signal("on_bonus_active")
-	await get_tree().create_timer(500).timeout
+	await get_tree().create_timer(300).timeout
 	emit_signal("on_bonus_deactive")
 	bonus_active = false
 
@@ -74,3 +77,23 @@ func set_info_panel(position:Vector2, description:String):
 
 func hide_info_panel():
 	info_panel.visible = false
+
+func load_data():
+	emit_signal("on_load_data")
+	
+func save_data():
+	emit_signal("on_save_data")
+	
+	CrazySDK.save_data("current_money",{ 
+			"mantissa": _current_money.mantissa,
+			"exponent": _current_money.exponent
+	})
+	
+	CrazySDK.save_data("current_country_index", {
+		"current_country_index" : country_index
+	})
+	
+	CrazySDK.save_data("coin_button_value", { 
+			"mantissa": _coin_button_value.mantissa,
+			"exponent": _coin_button_value.exponent
+	})

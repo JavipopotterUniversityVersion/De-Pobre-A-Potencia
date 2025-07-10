@@ -43,7 +43,8 @@ func add_money():
 	GameManager.add_button_money()
 	TweensDataBase.get_tween("pop").call({
 		"object":self,
-		"new_scale":scale*1.1,
+		"original_scale": original_scale,
+		"new_scale": original_scale * 1.1,
 		"duration":0.1
 	})
 	particles_handler.emit()

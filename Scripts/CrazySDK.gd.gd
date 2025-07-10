@@ -18,6 +18,23 @@ func _ready() -> void:
 		else:
 			print("SDK aún no cargado")
 
+func save_data(key: String, data: Dictionary) -> void:
+	var json_str = JSON.stringify(data)
+	print(json_str)
+	JavaScriptBridge.eval("window.CrazyGames.SDK.data.setItem(" + key + ", " + json_str + ");")
+
+func get_data(key: String) -> Dictionary:
+	var result = JavaScriptBridge.eval("window.CrazyGames.SDK.data.getItem(" + key + ");", true)
+	if result != null:
+		var parsed = JSON.parse_string(result)
+		if typeof(parsed) == TYPE_DICTIONARY:
+			return parsed
+		else:
+			print("Error al parsear datos.")
+	else:
+		print("No hay datos guardados.")
+	return {}
+
 func adStarted(args):
 	emit_signal("ad_started")
 
@@ -65,6 +82,10 @@ func show_midgame_ad() -> void:
 
 func show_banner():
 	sdk.banner.requestResponsiveBanner("responsive-banner-container")
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		GameManager.save_data()
 
 #	var adStartedCallback = JavaScript.create_callback(adStarted)
 #	var adErrorCallback = JavaScript.create_callback(adError)

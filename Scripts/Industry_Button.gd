@@ -5,12 +5,10 @@ signal on_revenue_change
 
 var _is_bought:bool
 var _industry_name:String
-var _level:int
 var _upgrade_cost:Big
 var _revenue:Big = Big.new(0)
 var _original_revenue:Big
 var _text
-var disabled:bool
 
 func _ready():
 	_text = get_node("Label")
@@ -24,7 +22,10 @@ func _ready():
 	$Button.mouse_exited.connect(func(): 
 		if !$Button.disabled:
 			modulate = Color(1,1,1,1))
-
+	
+	GameManager.on_load_data.connect(_load_industry)
+	GameManager.on_save_data.connect(_save_industry)
+	
 func set_industry(data, inactive = true):
 	$Button.disabled = inactive
 	
@@ -33,10 +34,10 @@ func set_industry(data, inactive = true):
 	else:
 		modulate = Color.WHITE
 		
-	_level = 0
 	_industry_name = data.name
 	_upgrade_cost = data.cost
 	_original_revenue = Big.roundDown(Big.division(data.revenue, 60))
+	
 	_update_text()
 
 func _on_press():
@@ -74,4 +75,18 @@ func _update_text():
 func get_description():
 	return "Generate " + _revenue.toAA() + "€/s"
 
+func _save_industry():
+	var industry_data = {
+		"bought" = _is_bought,
+		"revenue" = {
+			"mantissa": _revenue.mantissa,
+			"exponent": _revenue.exponent
+			}
+	}
+	CrazySDK.save_data(_industry_name, industry_data)
 
+func _load_industry():
+	var industry_data = CrazySDK.get_data(_industry_name)
+	if industry_data != {}:
+		_is_bought = industry_data.bought
+		_revenue = Big.new(industry_data.mantissa, industry_data.exponent)
