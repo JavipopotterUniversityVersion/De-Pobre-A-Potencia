@@ -14,6 +14,7 @@ func _ready():
 	_text = get_node("Label")
 	$Button.button_up.connect(_on_press)
 	$Button.disabled = true
+	modulate = Color.BLACK
 
 	$Button.mouse_entered.connect(func(): 
 		if !$Button.disabled:
@@ -30,9 +31,11 @@ func set_industry(data, inactive = true):
 	$Button.disabled = inactive
 	
 	if inactive:
-		modulate = Color.DIM_GRAY
+		modulate = Color.BLACK
+		_text.modulate = Color.WHITE
 	else:
 		modulate = Color.WHITE
+		_text.modulate = Color.WHITE
 		
 	_industry_name = data.name
 	_upgrade_cost = data.cost

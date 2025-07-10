@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=39 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -42,6 +42,18 @@ modulate_color = Color(1, 1, 1, 0.592157)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syofd"]
 texture = ExtResource("7_envlq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sorm6"]
+texture = ExtResource("9_eojcb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8n11"]
+texture = ExtResource("9_eojcb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3r7q"]
+texture = ExtResource("9_eojcb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22dcl"]
+texture = ExtResource("9_eojcb")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx8bm"]
 bg_color = Color(0, 0, 0, 0.509804)
@@ -121,12 +133,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 433.0
+offset_left = 429.0
 offset_top = 365.0
-offset_right = -180.0
+offset_right = -378.997
 offset_bottom = -370.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 55
 theme_override_font_sizes/font_size = 130
 text = "0€"
 horizontal_alignment = 1
@@ -155,18 +170,19 @@ script = ExtResource("4_2afog")
 
 [node name="coin_value_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
-offset_left = 234.003
-offset_top = 229.001
-offset_right = 829.003
-offset_bottom = 752.001
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
+offset_left = 9.0
+offset_top = 229.0
+offset_right = 829.0
+offset_bottom = 752.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_atplg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yq6jh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u2hca")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vse0w")
 theme_override_styles/focus = SubResource("StyleBoxTexture_syofd")
-text = "safdsafafswdsf"
 script = ExtResource("4_jf5gr")
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/AddClickButton/coin_value_button" instance=ExtResource("8_gsxym")]
@@ -177,13 +193,34 @@ offset_right = 36.8234
 offset_bottom = 74.733
 grow_horizontal = 1
 
+[node name="Label" type="Label" parent="GameUI/Right_Panel/AddClickButton/coin_value_button"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 84.0
+offset_right = 723.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 60
+text = "50 Click"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="upgrade_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
-offset_left = 879.003
-offset_top = 281.001
-offset_right = 1477.0
-offset_bottom = 450.001
-theme_override_font_sizes/font_size = 90
+offset_left = 839.0
+offset_top = 168.0
+offset_right = 1580.0
+offset_bottom = 675.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_sorm6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u8n11")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s3r7q")
+theme_override_styles/focus = SubResource("StyleBoxTexture_22dcl")
 text = "safdsaf"
 
 [node name="Label" type="Label" parent="GameUI/Right_Panel/AddClickButton"]
@@ -333,9 +370,9 @@ offset_bottom = 159.001
 
 [node name="Industries_Label" type="Label" parent="GameUI"]
 layout_mode = 2
-offset_left = 3775.0
+offset_left = 3172.0
 offset_top = 793.0
-offset_right = 4604.0
+offset_right = 4928.0
 offset_bottom = 966.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -350,9 +387,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 163.0
-offset_top = 661.0
+offset_top = 708.0
 offset_right = -1710.0
-offset_bottom = -464.998
+offset_bottom = -482.998
 scale = Vector2(0.72, 0.72)
 pivot_offset = Vector2(1566.36, 799.768)
 texture_normal = ExtResource("1_y62jt")
@@ -382,6 +419,9 @@ offset_left = 73.0
 offset_top = 86.0
 offset_right = -1688.0
 offset_bottom = 602.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 75
 theme_override_font_sizes/font_size = 200
 text = "Burundi"
 horizontal_alignment = 1
@@ -423,7 +463,6 @@ stretch_mode = 0
 script = ExtResource("9_r4qll")
 
 [node name="Label" type="Label" parent="GameUI/Next_Country_Button"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 anchor_left = 0.105
 anchor_top = 0.299
@@ -433,13 +472,16 @@ offset_left = 0.509995
 offset_top = -0.0620422
 offset_right = 0.799927
 offset_bottom = -0.360046
-theme_override_font_sizes/font_size = 90
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 60
 text = "Upgrade Country"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
-visible = false
 layout_mode = 0
 offset_left = 2436.0
 offset_top = 2563.0
@@ -449,7 +491,7 @@ theme_override_font_sizes/font_size = 90
 text = "Ganar mucha pasta"
 script = ExtResource("11_nl6rp")
 mantisa = 1.0
-exponente = 10
+exponente = 100
 
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
 layout_mode = 1
@@ -464,6 +506,9 @@ offset_left = 1163.0
 offset_top = 760.0
 offset_right = 2202.0
 offset_bottom = 894.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 45
 theme_override_font_sizes/font_size = 90
 text = "0€/s"
 horizontal_alignment = 1
@@ -485,6 +530,7 @@ script = ExtResource("19_jofh6")
 
 [node name="Label" type="Label" parent="GameUI/Bonus_Button"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -311.0
 offset_top = 125.0
 offset_right = 58.0

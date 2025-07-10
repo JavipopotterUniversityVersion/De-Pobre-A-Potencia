@@ -19,7 +19,7 @@ var bonus_active
 func start_bonus():
 	bonus_active = true
 	emit_signal("on_bonus_active")
-	await get_tree().create_timer(300).timeout
+	await get_tree().create_timer(120).timeout
 	emit_signal("on_bonus_deactive")
 	bonus_active = false
 

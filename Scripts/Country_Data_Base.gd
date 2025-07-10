@@ -112,7 +112,7 @@ static var _industries_data = [
 
 ]
 
-static var _countries_names = ["Burundi", "Haiti", "Yemeni", "India", "Brasil", "Spain", "France", "Rusia", "China", "United Kingdom", "Australia", "Japan", "United States", "Switzerland", "United Arab Emirates", "Qatar", "Singapore", "Luxemburg"]
+static var _countries_names = ["Burundi", "Haiti", "Yemeni", "India", "Brasil", "Spain", "France", "Rusia", "Germany", "China", "United Kingdom", "Australia", "Japan", "United States", "Switzerland", "United Arab Emirates", "Qatar", "Singapore", "Luxemburg", "None"]
 
 static func Get_country_name(country_index:int):
 	return _countries_names[country_index]
@@ -135,7 +135,8 @@ static var _next_country_cost = [
 	Big.new(2.2, 17),   # 220Q AED (Suiza -> EAU)
 	Big.new(2.5, 18),   # 2.5 Quint $ (EAU -> Qatar)
 	Big.new(3, 19),     # 30 Quint NOK (Qatar -> Singapur)
-	Big.new(3.5, 20)    # 350 Quint KWD (Singapur -> Luxemburgo)
+	Big.new(3.5, 20),    # 350 Quint KWD (Singapur -> Luxemburgo)
+	Big.new(100, 100)
 ]
 
 static func Get_next_country_cost(index:int):

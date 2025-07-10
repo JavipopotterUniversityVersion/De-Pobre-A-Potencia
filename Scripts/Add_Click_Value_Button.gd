@@ -28,12 +28,12 @@ func _upgrade():
 	if GameManager.try_buy(upgrade_cost):
 		click_value_cost = Big.times(click_value_cost, 10)
 		number_of_clicks_to_buy = Big.times(number_of_clicks_to_buy, 10)
-		upgrade_cost = Big.times(upgrade_cost, 2)
+		upgrade_cost = Big.times(upgrade_cost, 10)
 		_update_upgrade_button()
 		_update_coin_value_button()
 
 func _update_coin_value_button():
-	coin_value_button.text = "Buy x" + number_of_clicks_to_buy.toAA() + ":\n" + click_value_cost.toAA() + "€"
+	coin_value_button.get_node("Label").text = "Buy x" + number_of_clicks_to_buy.toAA() + ": " + click_value_cost.toAA() + "€"
 
 func _update_upgrade_button():
 	upgrade_button.text = "Upgrade: " + upgrade_cost.toAA() + "€"

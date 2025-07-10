@@ -8,7 +8,7 @@ func _execute_bonus():
 	_on_bonus_active()
 
 func _on_bonus_active():
-	$Timer.wait_time = 300
+	$Timer.wait_time = 120
 	$Timer.start()
 	while($Timer.time_left > 0):
 		$Label.text = "%d:%02d" % [floor($Timer.time_left / 60), int($Timer.time_left) % 60]
