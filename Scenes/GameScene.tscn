@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=37 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -40,26 +40,31 @@ modulate_color = Color(0.380392, 0.380392, 0.380392, 1)
 texture = ExtResource("7_envlq")
 modulate_color = Color(1, 1, 1, 0.592157)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syofd"]
-texture = ExtResource("7_envlq")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sorm6"]
 texture = ExtResource("9_eojcb")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8n11"]
 texture = ExtResource("9_eojcb")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3r7q"]
 texture = ExtResource("9_eojcb")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22dcl"]
-texture = ExtResource("9_eojcb")
+modulate_color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx8bm"]
 bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xvnl"]
-bg_color = Color(0.623529, 0.545098, 0.266667, 1)
+bg_color = Color(1, 0.937255, 0, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 20
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lj0c"]
 texture = ExtResource("19_mfp28")
@@ -182,7 +187,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_atplg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yq6jh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u2hca")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vse0w")
-theme_override_styles/focus = SubResource("StyleBoxTexture_syofd")
 script = ExtResource("4_jf5gr")
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/AddClickButton/coin_value_button" instance=ExtResource("8_gsxym")]
@@ -220,7 +224,6 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_sorm6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u8n11")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s3r7q")
-theme_override_styles/focus = SubResource("StyleBoxTexture_22dcl")
 text = "safdsaf"
 
 [node name="Label" type="Label" parent="GameUI/Right_Panel/AddClickButton"]
@@ -396,7 +399,6 @@ texture_normal = ExtResource("1_y62jt")
 texture_pressed = ExtResource("1_y62jt")
 texture_hover = ExtResource("1_y62jt")
 texture_disabled = ExtResource("1_y62jt")
-texture_focused = ExtResource("1_y62jt")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("2_ws5ks")
@@ -493,13 +495,6 @@ script = ExtResource("11_nl6rp")
 mantisa = 1.0
 exponente = 100
 
-[node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
-layout_mode = 1
-offset_left = -1321.71
-offset_top = 37.6669
-offset_right = -869.208
-offset_bottom = 152.797
-
 [node name="total_revenue_label" type="Label" parent="GameUI"]
 layout_mode = 0
 offset_left = 1163.0
@@ -542,6 +537,13 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="GameUI/Bonus_Button"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
+layout_mode = 1
+offset_left = -1321.71
+offset_top = 37.6669
+offset_right = -869.208
+offset_bottom = 152.797
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
 [editable path="GameUI/Right_Panel/Control"]

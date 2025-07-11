@@ -234,9 +234,9 @@ layout_mode = 2
 texture = ExtResource("11_l3krk")
 region_rect = Rect2(19.5, 94.8494, 482.001, 326.7)
 patch_margin_left = 259
-patch_margin_top = 195
+patch_margin_top = 138
 patch_margin_right = 252
-patch_margin_bottom = 160
+patch_margin_bottom = 204
 axis_stretch_horizontal = 1
 
 [node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect" index="2"]
