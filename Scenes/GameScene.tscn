@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=44 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -8,19 +8,35 @@
 [ext_resource type="Texture2D" uid="uid://ctlxkxcg8lc0j" path="res://Sprites/Burundi/Burundi_Background.png" id="3_t2ept"]
 [ext_resource type="Script" path="res://Scripts/Add_Click_Value_Button.gd" id="4_2afog"]
 [ext_resource type="Script" path="res://Scenes/Get_Parent_Description.gd" id="4_jf5gr"]
+[ext_resource type="Shader" path="res://Shaders/scroll_texture.gdshader" id="6_2ec6u"]
 [ext_resource type="PackedScene" uid="uid://cpav8gx1b6ynt" path="res://Prefabs/industry_panel.tscn" id="6_2vypl"]
 [ext_resource type="Script" path="res://Scenes/Particles_Handler.gd" id="6_iafb5"]
 [ext_resource type="Material" uid="uid://cchaumc4pxwhn" path="res://Particles/Money_Particles.tres" id="7_3s7xe"]
 [ext_resource type="Texture2D" uid="uid://ddudc7j7oqr7o" path="res://Sprites/Banners/Click.png" id="7_envlq"]
+[ext_resource type="Texture2D" uid="uid://k6e5vsov1eny" path="res://Sprites/star.png" id="7_fyu4n"]
 [ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="8_gsxym"]
 [ext_resource type="Script" path="res://Scripts/Progress_Bar.gd" id="8_ws3e0"]
 [ext_resource type="Texture2D" uid="uid://tndtaw32bp8g" path="res://Sprites/Upgrade_Button.png" id="9_eojcb"]
 [ext_resource type="Script" path="res://Scripts/Next_Country_Button.gd" id="9_r4qll"]
 [ext_resource type="Script" path="res://Scripts/Cheat_Button.gd" id="11_nl6rp"]
+[ext_resource type="Shader" path="res://Shaders/flag_shader.gdshader" id="12_iour6"]
 [ext_resource type="Texture2D" uid="uid://c6lxw8x3jpx8g" path="res://Sprites/Money_Panel.png" id="12_ocyw8"]
 [ext_resource type="PackedScene" uid="uid://cr3pak7l37jx5" path="res://Prefabs/info_panel.tscn" id="18_wjmln"]
 [ext_resource type="Script" path="res://Scripts/Bonus_Button.gd" id="19_jofh6"]
 [ext_resource type="Texture2D" uid="uid://uw5ox0rx38v0" path="res://Sprites/Banners/Bonus.png" id="19_mfp28"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7up2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq7gi"]
+shader = ExtResource("6_2ec6u")
+shader_parameter/scroll_speed = 0.08
+shader_parameter/angle_degrees = 45.0
+shader_parameter/repeat_x = 20.0
+shader_parameter/repeat_y = 12.0
+shader_parameter/row_offset = 1.0
+shader_parameter/tint_color = Color(1, 0.807843, 0.278431, 0.121569)
+shader_parameter/rotation_speed = 1.0
+shader_parameter/texture_to_scroll = ExtResource("7_fyu4n")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es0q7"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -51,8 +67,26 @@ modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 texture = ExtResource("9_eojcb")
 modulate_color = Color(0.415686, 0.415686, 0.415686, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixr3a"]
+shader = ExtResource("12_iour6")
+shader_parameter/speed = 1.0
+shader_parameter/frequency_y = 1.0
+shader_parameter/frequency_x = 1.0
+shader_parameter/amplitude_y = 25.0
+shader_parameter/amplitude_x = 25.0
+shader_parameter/inclination = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmjwl"]
+shader = ExtResource("12_iour6")
+shader_parameter/speed = 0.5
+shader_parameter/frequency_y = 1.0
+shader_parameter/frequency_x = 1.0
+shader_parameter/amplitude_y = 25.0
+shader_parameter/amplitude_x = 25.0
+shader_parameter/inclination = 0.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx8bm"]
-bg_color = Color(0, 0, 0, 0.509804)
+bg_color = Color(0, 0, 0, 0.639216)
 corner_radius_top_left = 45
 corner_radius_top_right = 45
 corner_radius_bottom_right = 45
@@ -105,6 +139,7 @@ industries_container = NodePath("Right_Panel/Control")
 
 [node name="Background" type="TextureRect" parent="GameUI"]
 self_modulate = Color(0.564706, 0.564706, 0.564706, 1)
+material = SubResource("ShaderMaterial_r7up2")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -115,6 +150,19 @@ offset_right = 4.0
 offset_bottom = 5.70392
 texture = ExtResource("3_t2ept")
 expand_mode = 1
+
+[node name="Panel" type="Panel" parent="GameUI/Background"]
+material = SubResource("ShaderMaterial_jq7gi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Money_Panel" type="NinePatchRect" parent="GameUI/Background"]
 layout_mode = 1
@@ -385,6 +433,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Coin_Button" type="TextureButton" parent="GameUI"]
+material = SubResource("ShaderMaterial_ixr3a")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -414,6 +463,7 @@ process_material = ExtResource("7_3s7xe")
 texture = ExtResource("1_y62jt")
 
 [node name="Country_Label" type="Label" parent="GameUI"]
+material = SubResource("ShaderMaterial_xmjwl")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0

@@ -49,6 +49,7 @@ func _on_press():
 			_upgrade()
 		else: 
 			_buy()
+		AudioManager.play_sound("Buy")
 		emit_signal("on_revenue_change")
 
 func _buy():

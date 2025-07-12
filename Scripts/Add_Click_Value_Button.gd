@@ -20,12 +20,14 @@ func _ready():
 
 func _add_click_value():
 	if GameManager.try_buy(click_value_cost):
+		AudioManager.play_sound("Buy")
 		GameManager.add_click_value(number_of_clicks_to_buy)
 #		click_value_cost = ceil(float(click_value_cost) * 1.01)
 		_update_coin_value_button()
 
 func _upgrade():
 	if GameManager.try_buy(upgrade_cost):
+		AudioManager.play_sound("Buy")
 		click_value_cost = Big.times(click_value_cost, 10)
 		number_of_clicks_to_buy = Big.times(number_of_clicks_to_buy, 10)
 		upgrade_cost = Big.times(upgrade_cost, 10)

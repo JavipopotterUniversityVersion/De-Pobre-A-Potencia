@@ -41,6 +41,7 @@ func on_mouse_exited():
 
 func add_money():
 	GameManager.add_button_money()
+	AudioManager.play_sound("Coin")
 	TweensDataBase.get_tween("pop").call({
 		"object":self,
 		"original_scale": original_scale,

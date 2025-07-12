@@ -50,7 +50,10 @@ func can_buy(amount:Big):
 
 func try_buy(amount:Big):
 	var bought = can_buy(amount)
-	if bought: sub_money(amount)
+	if bought:
+		sub_money(amount)
+	else:
+		AudioManager.play_sound("Deny")
 	return bought
 
 func add_button_money():

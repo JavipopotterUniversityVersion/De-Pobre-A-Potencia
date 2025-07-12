@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cysyohepv8cdl"]
+
+[ext_resource type="Script" path="res://Scripts/Audio_Manager.gd" id="1_ts6lq"]
+[ext_resource type="AudioStream" uid="uid://ck0qonx4uluf0" path="res://Sounds/Buy_Industry.wav" id="2_l6kmg"]
+[ext_resource type="AudioStream" uid="uid://dc4wf1eanqddn" path="res://Sounds/Main_Theme.wav" id="3_2a6ph"]
+[ext_resource type="AudioStream" uid="uid://k332ck1jhj10" path="res://Sounds/Upgrade.wav" id="4_wa8dp"]
+[ext_resource type="AudioStream" uid="uid://duvw4cyuchpwv" path="res://Sounds/Deny.wav" id="5_rkemf"]
+[ext_resource type="AudioStream" uid="uid://bqdsbun4h10pc" path="res://Sounds/Coin.wav" id="6_84h67"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2byn0"]
+streams_count = 1
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("2_l6kmg")
+stream_0/weight = 1.0
+
+[node name="Audio_Manager" type="Node"]
+script = ExtResource("1_ts6lq")
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_2byn0")
+max_polyphony = 3
+
+[node name="Main_Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2a6ph")
+autoplay = true
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wa8dp")
+
+[node name="Deny" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rkemf")
+max_polyphony = 5
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_84h67")
+max_polyphony = 5
