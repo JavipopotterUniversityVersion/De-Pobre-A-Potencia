@@ -34,7 +34,7 @@ func set_industry(data, inactive = true):
 		modulate = Color.BLACK
 		_text.modulate = Color.WHITE
 	else:
-		modulate = Color.WHITE
+		create_tween().tween_property(self, "modulate", Color.WHITE, 1.0)
 		_text.modulate = Color.WHITE
 		
 	_industry_name = data.name

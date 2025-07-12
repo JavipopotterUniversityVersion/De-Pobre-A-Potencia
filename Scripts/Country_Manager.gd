@@ -2,7 +2,7 @@ extends Node
 @export var industries_container:Node
 var _industries = []
 var _coin:TextureButton
-var background:TextureRect
+var background:Background_Transitioner
 
 var total_revenue:Big
 var total_revenue_label:Label
@@ -45,7 +45,8 @@ func _ready():
 
 func _update_country(country_index:int):
 	var country_name = Country_Data_Base.Get_country_name(country_index)
-	background.texture = load("res://Sprites/" + country_name + "/" + country_name + "_Background.png")
+	var new_tex = load("res://Sprites/" + country_name + "/" + country_name + "_Background.png")
+	background.set_background(new_tex)
 	get_node("Country_Label").text = country_name
 	
 	Country_Data_Base.Set_Country(country_name, _coin)

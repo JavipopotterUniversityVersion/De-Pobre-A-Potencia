@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=45 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -15,7 +15,6 @@
 [ext_resource type="Material" uid="uid://cchaumc4pxwhn" path="res://Particles/Money_Particles.tres" id="7_3s7xe"]
 [ext_resource type="Texture2D" uid="uid://ddudc7j7oqr7o" path="res://Sprites/Banners/Click.png" id="7_envlq"]
 [ext_resource type="Texture2D" uid="uid://k6e5vsov1eny" path="res://Sprites/star.png" id="7_fyu4n"]
-[ext_resource type="Shader" path="res://Shaders/texture_transition.gdshader" id="8_861n6"]
 [ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="8_gsxym"]
 [ext_resource type="Script" path="res://Scripts/Progress_Bar.gd" id="8_ws3e0"]
 [ext_resource type="Texture2D" uid="uid://tndtaw32bp8g" path="res://Sprites/Upgrade_Button.png" id="9_eojcb"]
@@ -28,10 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://uw5ox0rx38v0" path="res://Sprites/Banners/Bonus.png" id="19_mfp28"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7up2"]
-shader = ExtResource("8_861n6")
-shader_parameter/transform_ratio = 1.0
-shader_parameter/texture_1 = ExtResource("3_t2ept")
-shader_parameter/texture_2 = ExtResource("3_t2ept")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jq7gi"]
 shader = ExtResource("6_2ec6u")
@@ -40,7 +35,7 @@ shader_parameter/angle_degrees = 45.0
 shader_parameter/repeat_x = 20.0
 shader_parameter/repeat_y = 12.0
 shader_parameter/row_offset = 1.0
-shader_parameter/tint_color = Color(1, 0.807843, 0.278431, 0.0313726)
+shader_parameter/tint_color = Color(1, 0.807843, 0.278431, 0.121569)
 shader_parameter/rotation_speed = 1.0
 shader_parameter/texture_to_scroll = ExtResource("7_fyu4n")
 
