@@ -541,7 +541,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
-visible = false
 layout_mode = 0
 offset_left = 2436.0
 offset_top = 2563.0
@@ -597,6 +596,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
+self_modulate = Color(0, 0, 0, 0.513726)
 layout_mode = 1
 offset_left = -1321.71
 offset_top = 37.6669
