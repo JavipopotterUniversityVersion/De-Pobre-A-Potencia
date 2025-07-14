@@ -5,80 +5,97 @@ signal ad_started
 signal ad_finished
 signal ad_error
 
+var adStartedCallback = JavaScriptBridge.create_callback(adStarted)
+var adErrorCallback = JavaScriptBridge.create_callback(adError)
+var adFinishedCallback = JavaScriptBridge.create_callback(adFinished)
+var rewardedAdFinishedCallback = JavaScriptBridge.create_callback(rewardedAdFinished)
+
+var adCallbacks:JavaScriptObject = JavaScriptBridge.create_object("adCallbacks")
+var rewardAdCallbacks:JavaScriptObject= JavaScriptBridge.create_object("rewardedAdCallbacks")
+
 func _ready() -> void:
-	if not OS.has_feature("crazygames"): return
+	adCallbacks["adFinished"] = adFinishedCallback
+	adCallbacks["adError"] = adErrorCallback
+	adCallbacks["adStarted"] = adStartedCallback
 	
-	if Engine.has_singleton("JavaScriptBridge"):
-		var js = JavaScriptBridge.get_interface("window")
-		if js.has("CrazyGames") and js.CrazyGames.has("SDK"):
-			sdk = js.CrazyGames.SDK
-			sdk.game.init()
-			show_banner()
-			print("CrazyGames SDK initialized")
-		else:
-			print("SDK aún no cargado")
+	rewardAdCallbacks["adFinished"] = rewardedAdFinishedCallback
+	rewardAdCallbacks["adError"] = adErrorCallback
+	rewardAdCallbacks["adStarted"] = adStartedCallback
+	
+	var js:JavaScriptObject = JavaScriptBridge.get_interface("window")
+	
+	sdk = js.CrazyGames.SDK
+	sdk.game.init()
+	show_banner()
+	JavaScriptBridge.eval("console.log('SDK Initialized')")
+
+func happy_time():
+	if sdk == null:
+		return
+	
+	sdk.game.happytime()
 
 func save_data(key: String, data: Dictionary) -> void:
+	if sdk == null:
+		return
+		
 	var json_str = JSON.stringify(data)
-	print(json_str)
-	JavaScriptBridge.eval("window.CrazyGames.SDK.data.setItem(" + key + ", " + json_str + ");")
+	JavaScriptBridge.eval("console.log('data saved')")
+	sdk.data.setItem(key, json_str);
 
 func get_data(key: String) -> Dictionary:
-	var result = JavaScriptBridge.eval("window.CrazyGames.SDK.data.getItem(" + key + ");", true)
+	if sdk == null:
+		return {}
+		
+	var result = sdk.data.getItem(key)
 	if result != null:
 		var parsed = JSON.parse_string(result)
 		if typeof(parsed) == TYPE_DICTIONARY:
 			return parsed
-		else:
-			print("Error al parsear datos.")
+			JavaScriptBridge.eval("console.log('data obtained')")
 	else:
-		print("No hay datos guardados.")
+		sdk.data.setItem(key, "")
+		JavaScriptBridge.eval("console.log('data null for the key" + key + "')")
 	return {}
 
-func adStarted(args):
+func adStarted():
+	JavaScriptBridge.eval("console.log('Ad Started')")
+	sdk.game.gameplayStop()
 	emit_signal("ad_started")
 
 func adError(error):
+	JavaScriptBridge.eval("console.log('Ad Error')")
 	emit_signal("ad_error", error)
 
-func adFinished(args):
+func adFinished():
+	JavaScriptBridge.eval("console.log('Ad Finished')")
+	sdk.game.gameplayStart()
 	emit_signal("ad_done")
+
+func rewardedAdFinished(reward):
+	reward.call()
 
 func show_rewarded_ad(reward):
 	if sdk != null:
-		sdk.game.gameplayStop()
-		sdk.ad.requestAd("rewarded", {
-			"onComplete": func ():
-				print("Recompensa otorgada")
-				reward.call()
-				sdk.game.gameplayStart(),
-			"onClose": func ():
-				print("Anuncio cerrado")
-				sdk.game.gameplayStart(),
-			"onError": func ():
-				print("Error al mostrar anuncio")
-				sdk.game.gameplayStart()
-		})
+		var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+		window.request_rewarded_ad.call()
+		window.get_reward = "Undefined"
+		
+		while(window.get_reward == "Undefined"):
+			await get_tree().create_timer(0.5).timeout
+		JavaScriptBridge.eval("console.log(" + window.get_reward + ")")
+		
+		if window.get_reward == "True":
+			reward.call()
+			JavaScriptBridge.eval("console.log('Reward')")
+		else:
+			JavaScriptBridge.eval("console.log('No reward')")
 	else:
 		reward.call()
 
 func show_midgame_ad() -> void:
-	if sdk != null:
-		sdk.game.gameplayStop()
-		sdk.ad.requestAd("midgame", {
-			"onComplete": JavaScriptBridge.create_callback(func():
-				print("📺 Midgame ad terminado")
-				sdk.game.gameplayStart()
-				),
-			"onClose": JavaScriptBridge.create_callback(func():
-				print("❌ Midgame ad cerrado")
-				sdk.game.gameplayStart()
-				),
-			"onError": JavaScriptBridge.create_callback(func():
-				print("⚠️ Error en midgame ad")
-				sdk.game.gameplayStart()
-				)
-		})
+	var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+	window.request_ad.call()
 
 func show_banner():
 	sdk.banner.requestResponsiveBanner("responsive-banner-container")

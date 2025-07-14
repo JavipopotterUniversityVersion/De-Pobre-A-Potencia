@@ -41,6 +41,8 @@ func get_current_money():
 func upgrade_country():
 	country_index = country_index + 1
 	emit_signal("on_country_changed", country_index)
+	CrazySDK.happy_time()
+	save_data()
 
 func init_country():
 	emit_signal("on_country_changed", country_index)
