@@ -290,6 +290,7 @@ offset_left = 3.00342
 offset_top = 93.001
 offset_right = 0.00341797
 offset_bottom = -599.314
+theme_override_constants/outline_size = 55
 theme_override_font_sizes/font_size = 90
 text = "Click:"
 horizontal_alignment = 1
@@ -434,6 +435,7 @@ offset_right = 4928.0
 offset_bottom = 966.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/outline_size = 55
 theme_override_font_sizes/font_size = 90
 text = "Industries:"
 horizontal_alignment = 1
@@ -541,6 +543,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
+visible = false
 layout_mode = 0
 offset_left = 2436.0
 offset_top = 2563.0
@@ -596,12 +599,11 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
-self_modulate = Color(0, 0, 0, 0.513726)
 layout_mode = 1
-offset_left = -1321.71
-offset_top = 37.6669
-offset_right = -869.208
-offset_bottom = 152.797
+offset_left = -1339.71
+offset_top = 36.6669
+offset_right = -871.208
+offset_bottom = 153.797
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
 [editable path="GameUI/Right_Panel/Control"]

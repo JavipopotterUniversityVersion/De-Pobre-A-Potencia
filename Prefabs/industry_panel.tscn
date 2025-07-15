@@ -77,9 +77,9 @@ axis_stretch_horizontal = 1
 
 [node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect" index="2"]
 offset_left = 1817.0
-offset_top = 148.0
+offset_top = 82.0
 offset_right = 1927.0
-offset_bottom = 238.0
+offset_bottom = 172.0
 
 [node name="PanelContainer3" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 300)
@@ -108,11 +108,11 @@ layout_mode = 2
 [node name="NinePatchRect" parent="ScrollContainer/VBoxContainer/PanelContainer4" instance=ExtResource("1_f700g")]
 layout_mode = 2
 texture = ExtResource("5_di2j7")
-region_rect = Rect2(61.8459, 167.954, 915.63, 724.847)
+region_rect = Rect2(61.8459, 232.994, 915.63, 544.686)
 patch_margin_left = 455
-patch_margin_top = 241
+patch_margin_top = 294
 patch_margin_right = 471
-patch_margin_bottom = 298
+patch_margin_bottom = 291
 axis_stretch_horizontal = 1
 
 [node name="Info_Icon" parent="ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]

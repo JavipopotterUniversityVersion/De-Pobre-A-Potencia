@@ -30,7 +30,7 @@ func _ready():
 	add_child(info_panel)
 
 func get_next_country_cost():
-	return Country_Data_Base.Get_next_country_cost(country_index)
+	return Big.times(Country_Data_Base.Get_next_country_cost(country_index), (country_index+1) * 1.5)
 
 func get_current_country_name():
 	return Country_Data_Base.Get_country_name(country_index)

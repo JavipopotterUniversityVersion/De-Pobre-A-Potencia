@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr3pak7l37jx5"]
+[gd_scene load_steps=4 format=3 uid="uid://cr3pak7l37jx5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5uf1"]
+[ext_resource type="Shader" path="res://Shaders/flag_shader.gdshader" id="1_6fvvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgsee"]
+bg_color = Color(0, 0, 0, 0.843137)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 120
+corner_radius_top_right = 90
+corner_radius_bottom_left = 120
+corner_detail = 20
+shadow_color = Color(0.243137, 0.517647, 0, 0.117647)
+shadow_size = 35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3yavq"]
+shader = ExtResource("1_6fvvr")
+shader_parameter/speed = 1.0
+shader_parameter/frequency_y = 2.0
+shader_parameter/frequency_x = 2.0
+shader_parameter/amplitude_y = 2.0
+shader_parameter/amplitude_x = 2.0
+shader_parameter/inclination = 10.0
 
 [node name="Info_Panel" type="Panel"]
-self_modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
 anchor_left = -0.059
 anchor_top = -0.051
@@ -13,9 +35,10 @@ offset_left = -871.032
 offset_top = -0.952
 offset_right = 7.968
 offset_bottom = 390.768
-theme_override_styles/panel = SubResource("StyleBoxFlat_m5uf1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jgsee")
 
 [node name="Description" type="Label" parent="."]
+material = SubResource("ShaderMaterial_3yavq")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +47,8 @@ offset_right = 1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.276301, 0.233527, 0.267058, 1)
+theme_override_constants/outline_size = 60
 theme_override_font_sizes/font_size = 90
 text = "Skibdi toilet loremsad"
 horizontal_alignment = 1

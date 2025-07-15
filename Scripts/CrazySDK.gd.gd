@@ -1,5 +1,6 @@
 extends Node
 var sdk = null
+var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
 
 signal ad_started
 signal ad_finished
@@ -22,9 +23,7 @@ func _ready() -> void:
 	rewardAdCallbacks["adError"] = adErrorCallback
 	rewardAdCallbacks["adStarted"] = adStartedCallback
 	
-	var js:JavaScriptObject = JavaScriptBridge.get_interface("window")
-	
-	sdk = js.CrazyGames.SDK
+	sdk = window.CrazyGames.SDK
 	sdk.game.init()
 	show_banner()
 	JavaScriptBridge.eval("console.log('SDK Initialized')")
@@ -41,20 +40,25 @@ func save_data(key: String, data: Dictionary) -> void:
 		
 	var json_str = JSON.stringify(data)
 	JavaScriptBridge.eval("console.log('data saved')")
-	sdk.data.setItem(key, json_str);
+	window.setData(key, json_str)
+	#sdk.data.setItem(key, json_str);
 
 func get_data(key: String) -> Dictionary:
 	if sdk == null:
 		return {}
 		
-	var result = sdk.data.getItem(key)
+	#var result = sdk.data.getItem(key)
+	window.getData.call()
+	var result = window.dataCache
+		
 	if result != null:
 		var parsed = JSON.parse_string(result)
 		if typeof(parsed) == TYPE_DICTIONARY:
-			return parsed
 			JavaScriptBridge.eval("console.log('data obtained')")
+			return parsed
 	else:
-		sdk.data.setItem(key, "")
+		window.data.setData(key, "")
+		#sdk.data.setItem(key, "")
 		JavaScriptBridge.eval("console.log('data null for the key" + key + "')")
 	return {}
 
@@ -77,7 +81,6 @@ func rewardedAdFinished(reward):
 
 func show_rewarded_ad(reward):
 	if sdk != null:
-		var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
 		window.request_rewarded_ad.call()
 		window.get_reward = "Undefined"
 		
@@ -94,7 +97,9 @@ func show_rewarded_ad(reward):
 		reward.call()
 
 func show_midgame_ad() -> void:
-	var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+	if sdk== null:
+		return
+		
 	window.request_ad.call()
 
 func show_banner():

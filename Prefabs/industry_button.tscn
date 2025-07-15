@@ -1,19 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://bksovloummcfb"]
+[gd_scene load_steps=12 format=3 uid="uid://bksovloummcfb"]
 
 [ext_resource type="Script" path="res://Scripts/Industry_Button.gd" id="1_be8uo"]
 [ext_resource type="Texture2D" uid="uid://ciaygw4rrgopm" path="res://Sprites/Banners/Fishing.png" id="1_t0lci"]
+[ext_resource type="Shader" path="res://Shaders/flag_shader.gdshader" id="3_fguha"]
 [ext_resource type="Script" path="res://Scenes/Get_Parent_Description.gd" id="3_xevyl"]
 [ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="4_vgp82"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp7t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acm66"]
+shader = ExtResource("3_fguha")
+shader_parameter/speed = 1.0
+shader_parameter/frequency_y = 12.0
+shader_parameter/frequency_x = 12.0
+shader_parameter/amplitude_y = 1.0
+shader_parameter/amplitude_x = 1.0
+shader_parameter/inclination = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8cgd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2rcs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m0ws"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgrfo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2rcs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8cgd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orp7t"]
 
 [node name="NinePatchRect" type="NinePatchRect"]
 anchors_preset = -1
@@ -38,6 +48,7 @@ axis_stretch_vertical = 1
 script = ExtResource("1_be8uo")
 
 [node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_acm66")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.038
@@ -67,11 +78,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxEmpty_orp7t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m8cgd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a2rcs")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1m0ws")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgrfo")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_a2rcs")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_m8cgd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_orp7t")
 script = ExtResource("3_xevyl")
 
 [node name="Info_Icon" parent="." instance=ExtResource("4_vgp82")]

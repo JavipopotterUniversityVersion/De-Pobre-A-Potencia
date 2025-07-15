@@ -14,7 +14,7 @@ func _ready():
 
 func _on_bonus_active():
 	var t := 0.0
-	while true:
+	while GameManager.bonus_active:
 		var hue := fmod(t, 1.0)
 		var color := Color.from_hsv(hue, 1.0, 1.0).linear_to_srgb()
 		modulate = color
