@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=47 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3pak7l37jx5" path="res://Prefabs/info_panel.tscn" id="18_wjmln"]
 [ext_resource type="Script" path="res://Scripts/Bonus_Button.gd" id="19_jofh6"]
 [ext_resource type="Texture2D" uid="uid://uw5ox0rx38v0" path="res://Sprites/Banners/Bonus.png" id="19_mfp28"]
+[ext_resource type="Script" path="res://Scripts/ClearDataButton.gd" id="27_h7fsa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7up2"]
 shader = ExtResource("8_861n6")
@@ -231,9 +232,9 @@ script = ExtResource("4_2afog")
 [node name="coin_value_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 229.0
+offset_top = 288.0
 offset_right = 829.0
-offset_bottom = 752.0
+offset_bottom = 862.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
@@ -246,18 +247,28 @@ script = ExtResource("4_jf5gr")
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/AddClickButton/coin_value_button" instance=ExtResource("8_gsxym")]
 layout_mode = 1
-offset_left = -73.1766
-offset_top = -15.267
-offset_right = 36.8234
-offset_bottom = 74.733
+anchor_left = 1.209
+anchor_top = -0.161
+anchor_right = 1.209
+anchor_bottom = -0.161
+offset_left = -288.837
+offset_top = 124.215
+offset_right = -178.837
+offset_bottom = 214.215
 grow_horizontal = 1
+
+[node name="Label" parent="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon" index="0"]
+offset_left = 4.45996
+offset_top = -28.8
+offset_right = 4.45996
+offset_bottom = 8.19998
 
 [node name="Label" type="Label" parent="GameUI/Right_Panel/AddClickButton/coin_value_button"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 84.0
 offset_right = 723.0
-offset_bottom = 274.0
+offset_bottom = 242.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
@@ -268,10 +279,10 @@ vertical_alignment = 1
 
 [node name="upgrade_button" type="Button" parent="GameUI/Right_Panel/AddClickButton"]
 layout_mode = 0
-offset_left = 839.0
-offset_top = 168.0
-offset_right = 1580.0
-offset_bottom = 675.0
+offset_left = 861.003
+offset_top = 197.001
+offset_right = 1602.0
+offset_bottom = 704.001
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
@@ -287,9 +298,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.289
 offset_left = 3.00342
-offset_top = 93.001
+offset_top = 152.001
 offset_right = 0.00341797
-offset_bottom = -599.314
+offset_bottom = -540.314
 theme_override_constants/outline_size = 55
 theme_override_font_sizes/font_size = 90
 text = "Click:"
@@ -329,7 +340,7 @@ offset_right = 1789.0
 offset_bottom = 159.001
 
 [node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4" index="0"]
-patch_margin_bottom = 182
+patch_margin_bottom = 244
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]
 offset_left = 1679.0
@@ -497,6 +508,9 @@ offset_top = 62.0
 offset_right = 218.0
 offset_bottom = -84.0
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 45
 theme_override_font_sizes/font_size = 80
 theme_override_styles/background = SubResource("StyleBoxFlat_tx8bm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6xvnl")
@@ -543,7 +557,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheatButton" type="Button" parent="GameUI"]
-visible = false
 layout_mode = 0
 offset_left = 2436.0
 offset_top = 2563.0
@@ -590,6 +603,8 @@ offset_left = -311.0
 offset_top = 125.0
 offset_right = 58.0
 offset_bottom = 285.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 90
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -600,10 +615,29 @@ one_shot = true
 
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
 layout_mode = 1
-offset_left = -1339.71
-offset_top = 36.6669
-offset_right = -871.208
-offset_bottom = 153.797
+offset_left = -1340.0
+offset_top = 37.0
+offset_right = -3287.49
+offset_bottom = -611.897
+
+[node name="Description" parent="GameUI/Info_Panel" index="0"]
+anchor_left = 0.089
+anchor_top = 0.165
+anchor_right = 0.942
+anchor_bottom = 0.894
+offset_left = -0.284004
+offset_top = -0.0650024
+offset_right = -0.152039
+offset_bottom = -0.134033
+
+[node name="Button" type="Button" parent="."]
+offset_left = 285.0
+offset_top = 2594.0
+offset_right = 801.0
+offset_bottom = 2726.0
+theme_override_font_sizes/font_size = 90
+text = "Reset Data"
+script = ExtResource("27_h7fsa")
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
 [editable path="GameUI/Right_Panel/Control"]
@@ -626,3 +660,4 @@ offset_bottom = 153.797
 [editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect"]
 [editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect"]
 [editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect"]
+[editable path="GameUI/Info_Panel"]

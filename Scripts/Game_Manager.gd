@@ -9,6 +9,9 @@ signal on_bonus_deactive
 signal on_load_data
 signal on_save_data
 
+var _current_scene
+var GAME_SCENE = preload("res://Scenes/GameScene.tscn")
+
 var _current_money:Big = Big.new(0)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
@@ -19,7 +22,11 @@ var bonus_active
 func start_bonus():
 	bonus_active = true
 	emit_signal("on_bonus_active")
+	#AudioManager.stop_sound("Main_Theme")
+	#AudioManager.play_sound("Bonus_Theme")
 	await get_tree().create_timer(120).timeout
+	#AudioManager.stop_sound("Bonus_Theme")
+	#AudioManager.play_sound("Main_Theme")
 	emit_signal("on_bonus_deactive")
 	bonus_active = false
 
@@ -30,7 +37,7 @@ func _ready():
 	add_child(info_panel)
 
 func get_next_country_cost():
-	return Big.times(Country_Data_Base.Get_next_country_cost(country_index), (country_index+1) * 1.5)
+	return Country_Data_Base.Get_next_country_cost(country_index)
 
 func get_current_country_name():
 	return Country_Data_Base.Get_country_name(country_index)
@@ -82,6 +89,20 @@ func set_info_panel(position:Vector2, description:String):
 
 func hide_info_panel():
 	info_panel.visible = false
+
+func reset():
+	CrazySDK.clear_data()
+	
+	if(_current_scene == null): get_tree().get_root().get_node("GameScene").queue_free()
+	else: _current_scene.queue_free()
+	
+	_current_money = Big.new(0)
+	_coin_button_value = Big.new(1)
+	country_index = 0
+	bonus_active = false
+		
+	_current_scene = GAME_SCENE.instantiate()
+	get_tree().get_root().add_child(_current_scene)
 
 func load_data():
 	emit_signal("on_load_data")

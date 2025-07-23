@@ -9,6 +9,8 @@ var _upgrade_cost:Big
 var _revenue:Big = Big.new(0)
 var _original_revenue:Big
 var _text
+var _level:int = 1
+var SCALING_FACTOR:Big = Big.new(1.05)
 
 func _ready():
 	_text = get_node("Label")
@@ -24,8 +26,9 @@ func _ready():
 		if !$Button.disabled:
 			modulate = Color(1,1,1,1))
 	
-	GameManager.on_load_data.connect(_load_industry)
-	GameManager.on_save_data.connect(_save_industry)
+	#GameManager.on_load_data.connect(_load_industry)
+	await get_tree().create_timer(0.25).timeout
+	_load_industry()
 	
 func set_industry(data, inactive = true):
 	$Button.disabled = inactive
@@ -36,21 +39,26 @@ func set_industry(data, inactive = true):
 	else:
 		create_tween().tween_property(self, "modulate", Color.WHITE, 1.0)
 		_text.modulate = Color.WHITE
+		_upgrade_cost = data.cost
+		if CrazySDK.get_data(data.name) == {}:
+			_save_industry()
+	
 		
 	_industry_name = data.name
-	_upgrade_cost = data.cost
 	_original_revenue = Big.roundDown(Big.division(data.revenue, 60))
-	
 	_update_text()
 
 func _on_press():
 	if(GameManager.try_buy(_upgrade_cost)):
+		_upgrade_cost = Big.roundDown(Big.times(_upgrade_cost, Big.powers(SCALING_FACTOR,_level)))
+		_level = _level+1
 		if(_is_bought):
 			_upgrade()
 		else: 
 			_buy()
 		AudioManager.play_sound("Buy")
 		emit_signal("on_revenue_change")
+		_save_industry()
 
 func _buy():
 	_is_bought = true
@@ -62,7 +70,6 @@ func _buy():
 
 func _upgrade():
 	_revenue = Big.add(_revenue, _original_revenue)
-#	_upgrade_cost = Big.times(_upgrade_cost, 1.5)
 	_update_text()
 
 func _update_text():
@@ -70,7 +77,6 @@ func _update_text():
 		_text.text = "?"
 	else:
 		_text.text = _industry_name + "\n"
-#		 + " " + _revenue.toAA() + "€/min\n"
 		if(_is_bought):
 			_text.text = _text.text + "Upgrade: " + _upgrade_cost.toAA() + "€"
 		else:
@@ -85,7 +91,13 @@ func _save_industry():
 		"revenue" = {
 			"mantissa": _revenue.mantissa,
 			"exponent": _revenue.exponent
-			}
+			},
+		"active" = !$Button.disabled,
+		"level" = _level,
+		"upgrade_cost" = {
+			"mantissa": _upgrade_cost.mantissa,
+			"exponent": _upgrade_cost.exponent
+			},
 	}
 	CrazySDK.save_data(_industry_name, industry_data)
 
@@ -93,4 +105,18 @@ func _load_industry():
 	var industry_data = CrazySDK.get_data(_industry_name)
 	if industry_data != {}:
 		_is_bought = industry_data.bought
-		_revenue = Big.new(industry_data.mantissa, industry_data.exponent)
+		_revenue = Big.new(industry_data.revenue.mantissa, industry_data.revenue.exponent)
+		_level = industry_data.level
+		_upgrade_cost = Big.new(industry_data.upgrade_cost.mantissa, industry_data.upgrade_cost.exponent)
+		
+		if(industry_data.active):
+			create_tween().tween_property(self, "modulate", Color.WHITE, 1.0)
+			_text.modulate = Color.WHITE
+			$Button.disabled = false
+			
+		emit_signal("on_revenue_change")
+		_update_text()
+		
+		while(_is_bought):
+			await get_tree().create_timer(1).timeout
+			GameManager.add_money(_revenue)

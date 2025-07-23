@@ -21,6 +21,11 @@ max_polyphony = 3
 [node name="Main_Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5md38")
 autoplay = true
+parameters/looping = true
+
+[node name="Bonus_Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5md38")
+parameters/looping = true
 
 [node name="Upgrade" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ebc6k")

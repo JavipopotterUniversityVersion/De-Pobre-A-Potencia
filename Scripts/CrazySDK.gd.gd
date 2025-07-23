@@ -6,6 +6,8 @@ signal ad_started
 signal ad_finished
 signal ad_error
 
+var ADS = false
+
 var adStartedCallback = JavaScriptBridge.create_callback(adStarted)
 var adErrorCallback = JavaScriptBridge.create_callback(adError)
 var adFinishedCallback = JavaScriptBridge.create_callback(adFinished)
@@ -15,6 +17,9 @@ var adCallbacks:JavaScriptObject = JavaScriptBridge.create_object("adCallbacks")
 var rewardAdCallbacks:JavaScriptObject= JavaScriptBridge.create_object("rewardedAdCallbacks")
 
 func _ready() -> void:
+	if window == null: return
+	sdk = window.CrazyGames.SDK
+	
 	adCallbacks["adFinished"] = adFinishedCallback
 	adCallbacks["adError"] = adErrorCallback
 	adCallbacks["adStarted"] = adStartedCallback
@@ -22,17 +27,21 @@ func _ready() -> void:
 	rewardAdCallbacks["adFinished"] = rewardedAdFinishedCallback
 	rewardAdCallbacks["adError"] = adErrorCallback
 	rewardAdCallbacks["adStarted"] = adStartedCallback
-	
-	sdk = window.CrazyGames.SDK
-	sdk.game.init()
+	#sdk.game.init()
 	show_banner()
 	JavaScriptBridge.eval("console.log('SDK Initialized')")
+	
+	window.printData.call()
 
 func happy_time():
 	if sdk == null:
 		return
 	
 	sdk.game.happytime()
+
+func clear_data():
+	if sdk != null:
+		window.clear_data()
 
 func save_data(key: String, data: Dictionary) -> void:
 	if sdk == null:
@@ -48,18 +57,11 @@ func get_data(key: String) -> Dictionary:
 		return {}
 		
 	#var result = sdk.data.getItem(key)
-	window.getData.call()
-	var result = window.dataCache
+	var result = window.getData("" + key)
 		
 	if result != null:
 		var parsed = JSON.parse_string(result)
-		if typeof(parsed) == TYPE_DICTIONARY:
-			JavaScriptBridge.eval("console.log('data obtained')")
-			return parsed
-	else:
-		window.data.setData(key, "")
-		#sdk.data.setItem(key, "")
-		JavaScriptBridge.eval("console.log('data null for the key" + key + "')")
+		return parsed
 	return {}
 
 func adStarted():
@@ -80,7 +82,7 @@ func rewardedAdFinished(reward):
 	reward.call()
 
 func show_rewarded_ad(reward):
-	if sdk != null:
+	if (sdk != null && ADS):
 		window.request_rewarded_ad.call()
 		window.get_reward = "Undefined"
 		
@@ -97,13 +99,14 @@ func show_rewarded_ad(reward):
 		reward.call()
 
 func show_midgame_ad() -> void:
-	if sdk== null:
+	if (sdk == null || !ADS):
 		return
 		
 	window.request_ad.call()
 
 func show_banner():
-	sdk.banner.requestResponsiveBanner("responsive-banner-container")
+	if ADS:
+		sdk.banner.requestResponsiveBanner("responsive-banner-container")
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

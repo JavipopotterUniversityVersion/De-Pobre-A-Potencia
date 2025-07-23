@@ -10,7 +10,7 @@ func _on_mouse_entered():
 #	info_panel.visible = true
 	var description:String = get_parent().get_description()
 #	info_panel.get_node("Description").text = description
-	GameManager.set_info_panel(global_position + Vector2(-1051.522,-370.482), description)
+	GameManager.set_info_panel(global_position + Vector2(-701.522,-380.482), description)
 
 func _on_mouse_exited():
 #	info_panel.visible = false

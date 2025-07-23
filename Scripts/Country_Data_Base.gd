@@ -1,6 +1,8 @@
 class_name Country_Data_Base
 extends Node
 
+static var _country_scaling_cuve:Curve = preload("res://country_scaling_curve.tres")
+
 static func Set_Country(country_name:String, coin_button:TextureButton):
 	var button_texture = load("res://Sprites/" + country_name + "/" + country_name + "_Coin.png")
 	
@@ -141,5 +143,4 @@ static var _next_country_cost = [
 
 static func Get_next_country_cost(index:int):
 	return _next_country_cost[index]
-
-
+	#return Big.powers(_next_country_cost[index], _country_scaling_cuve.sample(float(index)/19.0))

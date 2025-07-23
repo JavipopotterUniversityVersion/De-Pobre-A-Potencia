@@ -6,6 +6,7 @@ var background:Background_Transitioner
 
 var total_revenue:Big
 var total_revenue_label:Label
+var bonus_active:bool = false
 
 func _ready():
 	total_revenue_label = get_node("total_revenue_label")
@@ -22,22 +23,28 @@ func _ready():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/s")
+			if bonus_active:
+				total_revenue = Big.times(total_revenue, 2)
+			total_revenue_label.text = total_revenue.toAA() + "€/s")
 				
 	GameManager.on_bonus_active.connect(
 		func():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/s"
-			total_revenue = Big.times(total_revenue, 2))
-	
+			total_revenue = Big.times(total_revenue, 2)
+			bonus_active = true
+			total_revenue_label.text = total_revenue.toAA() + "€/s"
+			)
+
 	GameManager.on_bonus_deactive.connect(
 		func():
 			total_revenue = Big.new(0)
 			for industry in _industries:
 				total_revenue = Big.add(total_revenue, industry._revenue)
-				total_revenue_label.text = total_revenue.toAA() + "€/s")
+			bonus_active = false
+			total_revenue_label.text = total_revenue.toAA() + "€/s"
+			)
 	
 	_coin = get_node("Coin_Button")
 	GameManager.on_country_changed.connect(_update_country)
@@ -45,6 +52,7 @@ func _ready():
 
 func _update_country(country_index:int):
 	var country_name = Country_Data_Base.Get_country_name(country_index)
+	JavaScriptBridge.eval("console.log('COUNTRY INDEX " + str(country_index) + "')")
 	var new_tex = load("res://Sprites/" + country_name + "/" + country_name + "_Background.png")
 	background.set_background(new_tex)
 	get_node("Country_Label").text = country_name
@@ -52,3 +60,8 @@ func _update_country(country_index:int):
 	Country_Data_Base.Set_Country(country_name, _coin)
 	var data = Country_Data_Base.Get_industry_data(country_index)
 	_industries[country_index].set_industry(data, false)
+	
+	total_revenue = Big.new(0)
+	for industry in _industries:
+		total_revenue = Big.add(total_revenue, industry._revenue)
+	total_revenue_label.text = total_revenue.toAA() + "€/s"
