@@ -78,6 +78,9 @@ func adFinished():
 	sdk.game.gameplayStart()
 	emit_signal("ad_done")
 
+func gameplayStart():
+	window.gameplayStart.call()
+
 func rewardedAdFinished(reward):
 	reward.call()
 

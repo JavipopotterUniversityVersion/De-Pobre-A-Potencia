@@ -3,6 +3,8 @@ extends TextureButton
 var particles_handler:Particles_Handler
 var original_scale
 
+var _first_click:bool = false
+
 func _ready():
 	original_scale = scale
 	particles_handler = get_node("Particles_Handler")
@@ -40,6 +42,10 @@ func on_mouse_exited():
 	})
 
 func add_money():
+	if not _first_click: 
+		CrazySDK.gameplayStart()
+		_first_click = true
+		
 	GameManager.add_button_money()
 	AudioManager.play_sound("Coin")
 	TweensDataBase.get_tween("pop").call({
