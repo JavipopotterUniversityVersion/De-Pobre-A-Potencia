@@ -79,6 +79,7 @@ func adFinished():
 	emit_signal("ad_done")
 
 func gameplayStart():
+	if window == null: return
 	window.gameplayStart.call()
 
 func rewardedAdFinished(reward):

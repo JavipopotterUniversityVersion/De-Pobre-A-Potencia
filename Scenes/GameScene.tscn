@@ -141,6 +141,7 @@ offset_right = -5343.14
 offset_bottom = -3022.13
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_w1rmq")
 industries_container = NodePath("Right_Panel/Control")
 
@@ -312,131 +313,108 @@ custom_minimum_size = Vector2(1880, 1800)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="ScrollContainer" parent="GameUI/Right_Panel/Control" index="0"]
-offset_right = 1877.0
-offset_bottom = 1789.0
-
-[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer" index="0"]
-patch_margin_bottom = 265
+offset_right = 1869.0
+offset_bottom = 1788.0
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect" index="2"]
-offset_left = 1717.0
-offset_top = 39.001
-offset_right = 1827.0
-
-[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2" index="0"]
-patch_margin_top = 205
-patch_margin_bottom = 240
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect" index="2"]
-offset_left = 1712.0
-offset_right = 1822.0
+offset_left = 1703.85
+offset_top = 71.001
+offset_right = 1813.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
-
-[node name="NinePatchRect" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4" index="0"]
-patch_margin_bottom = 244
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1065.0
+offset_top = 4.23278
+offset_right = 1175.0
+offset_bottom = 94.233
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect" index="2"]
-offset_left = 1678.0
-offset_top = 84.001
-offset_right = 1788.0
-offset_bottom = 174.001
+offset_left = 1707.85
+offset_top = 43.001
+offset_right = 1817.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1164.85
+offset_top = 8.00098
+offset_right = 1244.85
+offset_bottom = 86.001
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect" index="2"]
-offset_left = 1679.0
-offset_top = 69.001
-offset_right = 1789.0
-offset_bottom = 159.001
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Industries_Label" type="Label" parent="GameUI"]
 layout_mode = 2
