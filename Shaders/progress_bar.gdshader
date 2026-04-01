@@ -95,4 +95,3 @@ void fragment() {
     float smoothed_alpha = 1.0 - smoothstep(0.0, edge_softness, distance);
     COLOR.a = smoothed_alpha;
 }
-

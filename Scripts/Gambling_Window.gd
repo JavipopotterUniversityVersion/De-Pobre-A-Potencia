@@ -282,9 +282,12 @@ func _settle_tiles_after_step() -> void:
 		return
 		
 	current_tile_index += 1
-
-	_update_tile_labels()
-	_update_current_multiplier()
+	if current_tile_index >= tile_values.size(): 
+		current_tile_index = 0
+		_on_stand_pressed()
+	else:
+		_update_tile_labels()
+		_update_current_multiplier()
 
 
 func _resolve_landing() -> void:
