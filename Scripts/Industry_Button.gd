@@ -1,6 +1,7 @@
 extends NinePatchRect
 class_name Industry_Button
 
+@warning_ignore("unused_signal")
 signal on_revenue_change
 
 var _is_bought:bool

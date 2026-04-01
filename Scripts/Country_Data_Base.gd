@@ -1,6 +1,7 @@
 class_name Country_Data_Base
 extends Node
 
+@warning_ignore("unused_private_class_variable")
 static var _country_scaling_cuve:Curve = preload("res://country_scaling_curve.tres")
 
 static func Set_Country(country_name:String, coin_button:TextureButton):

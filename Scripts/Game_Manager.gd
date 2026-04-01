@@ -1,18 +1,24 @@
 extends Node
 
+@warning_ignore("unused_signal")
 signal on_money_changed
+@warning_ignore("unused_signal")
 signal on_country_changed
 
+@warning_ignore("unused_signal")
 signal on_bonus_active
+@warning_ignore("unused_signal")
 signal on_bonus_deactive
 
+@warning_ignore("unused_signal")
 signal on_load_data
+@warning_ignore("unused_signal")
 signal on_save_data
 
 var _current_scene
 var GAME_SCENE = preload("res://Scenes/GameScene.tscn")
 
-var _current_money:Big = Big.new(0)
+var _current_money:Big = Big.new(100)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
 

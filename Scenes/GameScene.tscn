@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dmc7elu8ott5c"]
+[gd_scene load_steps=50 format=3 uid="uid://dmc7elu8ott5c"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Initializer.gd" id="1_122oa"]
 [ext_resource type="Texture2D" uid="uid://nw6eenv6uctq" path="res://Sprites/Burundi/Burundi_Coin.png" id="1_y62jt"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Scripts/Bonus_Button.gd" id="19_jofh6"]
 [ext_resource type="Texture2D" uid="uid://uw5ox0rx38v0" path="res://Sprites/Banners/Bonus.png" id="19_mfp28"]
 [ext_resource type="Script" path="res://Scripts/ClearDataButton.gd" id="27_h7fsa"]
+[ext_resource type="Script" path="res://Scripts/Open_Gambling_Button.gd" id="30_1lmxe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7up2"]
 shader = ExtResource("8_861n6")
@@ -124,6 +125,30 @@ modulate_color = Color(0.411765, 0.411765, 0.411765, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lj0c"]
 texture = ExtResource("19_mfp28")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gambling_hover"]
+bg_color = Color(0.901961, 0.411765, 0.152941, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.807843, 0.423529, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gambling"]
+bg_color = Color(0.796078, 0.333333, 0.113725, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.933333, 0.713726, 0.301961, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
 
 [node name="GameScene" type="Node"]
 script = ExtResource("1_122oa")
@@ -591,6 +616,21 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="GameUI/Bonus_Button"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Gambling_Button" type="Button" parent="GameUI"]
+layout_mode = 0
+offset_left = 1768.0
+offset_top = -73.0
+offset_right = 2434.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.117647, 0.0470588, 0.0156863, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 72
+theme_override_styles/hover = SubResource("StyleBoxFlat_gambling_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gambling")
+text = "Gamble"
+script = ExtResource("30_1lmxe")
 
 [node name="Info_Panel" parent="GameUI" instance=ExtResource("18_wjmln")]
 layout_mode = 1

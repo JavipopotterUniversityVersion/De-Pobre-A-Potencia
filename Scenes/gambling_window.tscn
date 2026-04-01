@@ -1,0 +1,559 @@
+[gd_scene load_steps=15 format=3 uid="uid://c85um0yilayqa"]
+
+[ext_resource type="Script" path="res://Scripts/Gambling_Window.gd" id="1_3yxvh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_bg"]
+bg_color = Color(0.0941176, 0.0941176, 0.117647, 0.941176)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.309804, 0.572549, 0.741176, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.2, 0.321569, 0.423529, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.545098, 0.760784, 0.901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_game_box"]
+bg_color = Color(0.0666667, 0.0823529, 0.101961, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.211765, 0.447059, 0.603922, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_1"]
+bg_color = Color(0.301961, 0.423529, 0.301961, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_2"]
+bg_color = Color(0.321569, 0.458824, 0.321569, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_3"]
+bg_color = Color(0.341176, 0.494118, 0.341176, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_4"]
+bg_color = Color(0.360784, 0.529412, 0.360784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_5"]
+bg_color = Color(0.380392, 0.564706, 0.380392, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_6"]
+bg_color = Color(0.4, 0.6, 0.4, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_7"]
+bg_color = Color(0.419608, 0.635294, 0.419608, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_8"]
+bg_color = Color(0.439216, 0.670588, 0.439216, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tile_9"]
+bg_color = Color(0.458824, 0.705882, 0.458824, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_character"]
+bg_color = Color(0.984314, 0.713726, 0.258824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.266667, 0.188235, 0.0588235, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="GamblingWindow" type="CanvasLayer" node_paths=PackedStringArray("money_text", "multiplier_text", "status_text", "tiles_hbox", "character", "step_button", "stand_button", "bet_10_button", "bet_25_button", "bet_50_button", "bet_100_button", "tile_panel_1", "tile_panel_2", "tile_panel_3", "tile_panel_4", "tile_panel_5", "tile_panel_6", "tile_panel_7", "tile_panel_8", "tile_panel_9", "tile_label_1", "tile_label_2", "tile_label_3", "tile_label_4", "tile_label_5", "tile_label_6", "tile_label_7", "tile_label_8", "tile_label_9")]
+layer = 20
+script = ExtResource("1_3yxvh")
+money_text = NodePath("FullScreen/MainPanel/Margin/Layout/Money_Text")
+multiplier_text = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/Multiplier_Text")
+status_text = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/Status_Text")
+tiles_hbox = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox")
+character = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/Character")
+step_button = NodePath("FullScreen/MainPanel/Margin/Layout/ActionButtons/Step")
+stand_button = NodePath("FullScreen/MainPanel/Margin/Layout/ActionButtons/Stand")
+bet_10_button = NodePath("FullScreen/MainPanel/Margin/Layout/BetButtons/Bet10")
+bet_25_button = NodePath("FullScreen/MainPanel/Margin/Layout/BetButtons/Bet25")
+bet_50_button = NodePath("FullScreen/MainPanel/Margin/Layout/BetButtons/Bet50")
+bet_100_button = NodePath("FullScreen/MainPanel/Margin/Layout/BetButtons/Bet100")
+tile_panel_1 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile1")
+tile_panel_2 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile2")
+tile_panel_3 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile3")
+tile_panel_4 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile4")
+tile_panel_5 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile5")
+tile_panel_6 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile6")
+tile_panel_7 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile7")
+tile_panel_8 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile8")
+tile_panel_9 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile9")
+tile_label_1 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile1/TileText")
+tile_label_2 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile2/TileText")
+tile_label_3 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile3/TileText")
+tile_label_4 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile4/TileText")
+tile_label_5 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile5/TileText")
+tile_label_6 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile6/TileText")
+tile_label_7 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile7/TileText")
+tile_label_8 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile8/TileText")
+tile_label_9 = NodePath("FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile9/TileText")
+
+[node name="FullScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="FullScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="MainPanel" type="Panel" parent="FullScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 68.0
+offset_right = -120.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_bg")
+
+[node name="Margin" type="MarginContainer" parent="FullScreen/MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 34.0
+offset_right = -40.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Layout" type="VBoxContainer" parent="FullScreen/MainPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = -16
+
+[node name="Header" type="Label" parent="FullScreen/MainPanel/Margin/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.909804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 68
+text = "Risk Run"
+horizontal_alignment = 1
+
+[node name="Money_Text" type="Label" parent="FullScreen/MainPanel/Margin/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.980392, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 38
+text = "Wallet: 0€ | Pot: 0€ | Bet 10%: 0€"
+horizontal_alignment = 1
+
+[node name="BetButtons" type="HBoxContainer" parent="FullScreen/MainPanel/Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Bet10" type="Button" parent="FullScreen/MainPanel/Margin/Layout/BetButtons"]
+custom_minimum_size = Vector2(170, 88)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "10%"
+
+[node name="Bet25" type="Button" parent="FullScreen/MainPanel/Margin/Layout/BetButtons"]
+custom_minimum_size = Vector2(170, 88)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "25%"
+
+[node name="Bet50" type="Button" parent="FullScreen/MainPanel/Margin/Layout/BetButtons"]
+custom_minimum_size = Vector2(170, 88)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "50%"
+
+[node name="Bet100" type="Button" parent="FullScreen/MainPanel/Margin/Layout/BetButtons"]
+custom_minimum_size = Vector2(170, 88)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "100%"
+
+[node name="Game_Box" type="Panel" parent="FullScreen/MainPanel/Margin/Layout"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_game_box")
+
+[node name="GameContent" type="Control" parent="FullScreen/MainPanel/Margin/Layout/Game_Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TrackViewport" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 116.0
+offset_bottom = 218.0
+grow_horizontal = 2
+
+[node name="Tiles_HBox" type="HBoxContainer" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 279.0
+offset_right = 1489.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Tile1" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_1")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile2" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_2")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile3" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_3")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile4" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_4")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.75"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile5" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_5")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile6" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_6")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x2.5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile7" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_7")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile8" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_8")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tile9" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tile_9")
+
+[node name="TileText" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent/TrackViewport/Tiles_HBox/Tile9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "x1.35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Character" type="Panel" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -110.0
+offset_right = 54.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_character")
+
+[node name="Multiplier_Text" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 361.0
+offset_bottom = 530.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.960784, 0.952941, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 42
+text = "Multiplicador actual: x1"
+horizontal_alignment = 1
+
+[node name="Status_Text" type="Label" parent="FullScreen/MainPanel/Margin/Layout/Game_Box/GameContent"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.898039, 0.92549, 0.945098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+
+[node name="ActionButtons" type="HBoxContainer" parent="FullScreen/MainPanel/Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="Step" type="Button" parent="FullScreen/MainPanel/Margin/Layout/ActionButtons"]
+custom_minimum_size = Vector2(260, 108)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "Step"
+
+[node name="Stand" type="Button" parent="FullScreen/MainPanel/Margin/Layout/ActionButtons"]
+custom_minimum_size = Vector2(260, 108)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.960784, 0.976471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "Stand"

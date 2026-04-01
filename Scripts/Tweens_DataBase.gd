@@ -1,6 +1,8 @@
 extends Node
 
+@warning_ignore("unused_signal")
 signal on_animation_start
+@warning_ignore("unused_signal")
 signal on_animation_end
 
 func get_tween(tween_name):
@@ -17,7 +19,6 @@ var tweens = {
 			
 	"pop_up":
 		func(context):
-			var original_scale = context.object.scale
 			var tween:Tween = context.object.create_tween()
 			tween.tween_property(context.object, 'scale', context.new_scale, context.duration)
 			emit_signal("on_animation_end"),
@@ -75,7 +76,6 @@ var tweens = {
 	"die":
 		func(context:Sprite2D):
 			var tween:Tween = context.create_tween()
-			var init_pos = context.position
 			tween.tween_property(context, 'rotation', 2 * PI, 0.2)
 			tween.tween_property(context, 'modulate', Color(1,0,0,0), 0.3)
 			emit_signal("on_animation_end"),

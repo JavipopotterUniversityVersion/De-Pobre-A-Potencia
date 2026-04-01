@@ -2,8 +2,11 @@ extends Node
 var sdk = null
 var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
 
+@warning_ignore("unused_signal")
 signal ad_started
+@warning_ignore("unused_signal")
 signal ad_finished
+@warning_ignore("unused_signal")
 signal ad_error
 
 var ADS = false
