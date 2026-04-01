@@ -619,10 +619,10 @@ one_shot = true
 
 [node name="Gambling_Button" type="Button" parent="GameUI"]
 layout_mode = 0
-offset_left = 1768.0
-offset_top = -73.0
-offset_right = 2434.0
-offset_bottom = 366.0
+offset_left = 259.0
+offset_top = 66.0
+offset_right = 826.0
+offset_bottom = 285.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.117647, 0.0470588, 0.0156863, 1)
 theme_override_constants/outline_size = 30

@@ -52,10 +52,8 @@ var tile_panels: Array[Panel] = []
 var tile_labels: Array[Label] = []
 var tile_values: Array[float] = []
 @warning_ignore("integer_division")
-var center_tile_index:int = int(TILE_COUNT / 2)
+var current_tile_index:int = 0
 var current_multiplier := 1.0
-var character_base_position := Vector2.ZERO
-
 
 func _ready() -> void:
 	if not _validate_ui_references():
@@ -63,7 +61,6 @@ func _ready() -> void:
 		return
 
 	rng.randomize()
-	character_base_position = character.position
 	_connect_buttons()
 	if not _initialize_tiles_from_exports():
 		_set_status("Configura tile_panel_* y tile_label_* en el inspector")
@@ -144,7 +141,6 @@ func _initialize_tiles_from_exports() -> bool:
 		tile_values.append(_random_multiplier())
 
 	@warning_ignore("integer_division")
-	center_tile_index = int(tile_labels.size() / 2)
 	_update_tile_labels()
 	_update_current_multiplier()
 	return true
@@ -252,16 +248,15 @@ func _on_stand_pressed() -> void:
 func _animate_step() -> void:
 	var tile_shift := _get_tile_shift()
 
-	var jump_up_pos := character_base_position + Vector2(0, -CHARACTER_JUMP_HEIGHT)
+	var character_base_position = character.position
+	var jump_up_pos:Vector2 = character_base_position + Vector2(0, -CHARACTER_JUMP_HEIGHT)
 	var track_target_pos := tiles_hbox.position + Vector2(-tile_shift, 0)
 
-	var jump_tween := character.create_tween()
-	jump_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	var jump_tween := create_tween()
 	jump_tween.tween_property(character, "position", jump_up_pos, STEP_DURATION * 0.45).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	jump_tween.tween_property(character, "position", character_base_position, STEP_DURATION * 0.55).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
-	var track_tween := tiles_hbox.create_tween()
-	track_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	var track_tween := create_tween()
 	track_tween.tween_property(tiles_hbox, "position", track_target_pos, STEP_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 	await get_tree().create_timer(STEP_DURATION + 0.08, true).timeout
@@ -283,13 +278,10 @@ func _get_tile_shift() -> float:
 
 
 func _settle_tiles_after_step() -> void:
-	tiles_hbox.position.x = 0.0
-
 	if tile_values.is_empty() or tile_labels.is_empty():
 		return
-
-	tile_values.pop_front()
-	tile_values.append(_random_multiplier())
+		
+	current_tile_index += 1
 
 	_update_tile_labels()
 	_update_current_multiplier()
@@ -325,11 +317,7 @@ func _tile_color_for(multiplier: float) -> Color:
 
 
 func _update_current_multiplier() -> void:
-	if tile_values.is_empty():
-		current_multiplier = 1.0
-	else:
-		current_multiplier = tile_values[center_tile_index]
-
+	current_multiplier = tile_values[current_tile_index]
 	multiplier_text.text = "Multiplicador actual: x" + _format_multiplier(current_multiplier)
 
 
