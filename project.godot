@@ -8,6 +8,69 @@
 
 config_version=5
 
+[admob]
+
+config={
+"banner": {
+"position": 1,
+"respect_safe_area": true,
+"show_instantly": true,
+"size": "BANNER",
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/6300978111"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/2934735716"
+}
+}
+},
+"debug": {
+"is_debug_on_release": false,
+"is_real": true,
+"is_test_europe_user_consent": false
+},
+"general": {
+"is_enabled": true,
+"is_for_child_directed_treatment": false,
+"max_ad_content_rating": "PG"
+},
+"interstitial": {
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/1033173712"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/4411468910"
+}
+}
+},
+"rewarded": {
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/5224354917"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/1712485313"
+}
+}
+},
+"rewarded_interstitial": {
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/5354046379"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/6978759866"
+}
+}
+}
+}
+
+[ads]
+
+provider="auto"
+
 [application]
 
 config/name="Clicker Game"
@@ -22,13 +85,20 @@ GameManager="*res://Scripts/Game_Manager.gd"
 TweensDataBase="*res://Scripts/Tweens_DataBase.gd"
 CrazySDK="*res://Scripts/CrazySDK.gd.gd"
 AudioManager="*res://Prefabs/audio_manager.tscn"
+MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
+AdsManager="*res://Scripts/Ads_Manager.gd"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/admob/plugin.cfg")
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

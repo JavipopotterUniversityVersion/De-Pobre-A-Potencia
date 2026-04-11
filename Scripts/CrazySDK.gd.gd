@@ -1,6 +1,8 @@
 extends Node
 var sdk = null
 var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+const LOCAL_SAVE_PATH := "user://save_data.json"
+var _local_save_data: Dictionary = {}
 
 @warning_ignore("unused_signal")
 signal ad_started
@@ -20,6 +22,7 @@ var adCallbacks:JavaScriptObject = JavaScriptBridge.create_object("adCallbacks")
 var rewardAdCallbacks:JavaScriptObject= JavaScriptBridge.create_object("rewardedAdCallbacks")
 
 func _ready() -> void:
+	_load_local_data()
 	if window == null: return
 	sdk = window.CrazyGames.SDK
 	
@@ -45,8 +48,13 @@ func happy_time():
 func clear_data():
 	if sdk != null:
 		window.clear_data()
+	_local_save_data.clear()
+	_save_local_data()
 
 func save_data(key: String, data: Dictionary) -> void:
+	_local_save_data[key] = data
+	_save_local_data()
+
 	if sdk == null:
 		return
 		
@@ -57,6 +65,16 @@ func save_data(key: String, data: Dictionary) -> void:
 
 func get_data(key: String) -> Dictionary:
 	if sdk == null:
+		if _local_save_data.has(key):
+			return _local_save_data[key]
+		return {}
+
+	if OS.get_name() == "Android" or OS.has_feature("android"):
+		if _local_save_data.has(key):
+			return _local_save_data[key]
+		return {}
+
+	if sdk == null:
 		return {}
 		
 	#var result = sdk.data.getItem(key)
@@ -66,6 +84,31 @@ func get_data(key: String) -> Dictionary:
 		var parsed = JSON.parse_string(result)
 		return parsed
 	return {}
+
+
+func _load_local_data() -> void:
+	if not FileAccess.file_exists(LOCAL_SAVE_PATH):
+		_local_save_data = {}
+		return
+
+	var file := FileAccess.open(LOCAL_SAVE_PATH, FileAccess.READ)
+	if file == null:
+		_local_save_data = {}
+		return
+
+	var content := file.get_as_text()
+	var parsed = JSON.parse_string(content)
+	if parsed is Dictionary:
+		_local_save_data = parsed
+	else:
+		_local_save_data = {}
+
+
+func _save_local_data() -> void:
+	var file := FileAccess.open(LOCAL_SAVE_PATH, FileAccess.WRITE)
+	if file == null:
+		return
+	file.store_string(JSON.stringify(_local_save_data))
 
 func adStarted():
 	JavaScriptBridge.eval("console.log('Ad Started')")
