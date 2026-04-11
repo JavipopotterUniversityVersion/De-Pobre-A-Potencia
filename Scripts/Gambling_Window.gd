@@ -11,7 +11,10 @@ const CHARACTER_JUMP_HEIGHT := 58.0
 @export var multiplier_text: Label
 @export var status_text: Label
 @export var tiles_hbox: HBoxContainer
-@export var character: Panel
+@export var character: TextureRect
+@export var character_idle_texture: Texture2D
+@export var character_jump_texture: Texture2D
+@export var character_fail_texture: Texture2D
 
 @export var step_button: Button
 @export var stand_button: Button
@@ -61,6 +64,8 @@ func _ready() -> void:
 		return
 
 	rng.randomize()
+	if character_idle_texture != null:
+		character.texture = character_idle_texture
 	_connect_buttons()
 	if not _initialize_tiles_from_exports():
 		_set_status("Configura tile_panel_* y tile_label_* en el inspector")
@@ -247,6 +252,8 @@ func _on_stand_pressed() -> void:
 
 func _animate_step() -> void:
 	var tile_shift := _get_tile_shift()
+	if character_jump_texture != null:
+		character.texture = character_jump_texture
 
 	var character_base_position = character.position
 	var jump_up_pos:Vector2 = character_base_position + Vector2(0, -CHARACTER_JUMP_HEIGHT)
@@ -260,6 +267,8 @@ func _animate_step() -> void:
 	track_tween.tween_property(tiles_hbox, "position", track_target_pos, STEP_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 	await get_tree().create_timer(STEP_DURATION + 0.08, true).timeout
+	if character_idle_texture != null:
+		character.texture = character_idle_texture
 	_settle_tiles_after_step()
 
 
@@ -300,6 +309,8 @@ func _resolve_landing() -> void:
 
 	accumulated_money = Big.new(0)
 	_update_money_text()
+	if character_fail_texture != null:
+		character.texture = character_fail_texture
 	_set_status("Error: pierdes todo lo acumulado")
 	AudioManager.play_sound("Deny")
 	round_finished = true
