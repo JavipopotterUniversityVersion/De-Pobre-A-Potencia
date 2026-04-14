@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Industry_Button.gd" id="1_be8uo"]
 [ext_resource type="Shader" path="res://Shaders/flag_shader.gdshader" id="3_fguha"]
-[ext_resource type="Texture2D" uid="uid://b6bxm7in2yqq7" path="res://Sprites/icons/Burundi.png" id="4_05g0k"]
+[ext_resource type="Texture2D" uid="uid://b6bxm7in2yqq7" path="res://Sprites/icons/Fishing.png" id="4_05g0k"]
 [ext_resource type="PackedScene" uid="uid://b8a7dna1c5mey" path="res://Prefabs/info_icon.tscn" id="4_vgp82"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tigjl"]
@@ -55,16 +55,13 @@ font_color = Color(1, 0.388235, 0.321569, 1)
 
 [node name="IndustryButton" type="Button"]
 anchors_preset = -1
-anchor_left = -0.296
-anchor_top = 0.431
-anchor_right = 1.118
-anchor_bottom = 0.843
-offset_left = -0.00799561
-offset_top = -61.288
-offset_right = 0.0639648
-offset_bottom = 60.736
+anchor_right = 1.427
+anchor_bottom = 0.559
+offset_right = 0.0959473
+offset_bottom = -0.231995
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_tigjl")
 script = ExtResource("1_be8uo")
 

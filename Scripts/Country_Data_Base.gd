@@ -16,6 +16,9 @@ static func Set_Country(country_name:String, coin_button:TextureButton):
 static func Get_industry_data(country_index:int):
 	return _industries_data[country_index]
 
+static func Get_industries_count() -> int:
+	return _industries_data.size()
+
 static var _industries_data = [
 	{
 		"name" : "Fishing",

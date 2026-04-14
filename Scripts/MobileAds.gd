@@ -9,15 +9,23 @@ class _AdMobSettingsClass:
 	}
 
 
+@warning_ignore("unused_signal")
 signal initialization_complete(status, adapter_name)
 
+@warning_ignore("unused_signal")
 signal rewarded_ad_loaded()
+@warning_ignore("unused_signal")
 signal rewarded_ad_failed_to_load(error_code)
+@warning_ignore("unused_signal")
 signal rewarded_ad_failed_to_show(error_code)
+@warning_ignore("unused_signal")
 signal rewarded_ad_closed()
+@warning_ignore("unused_signal")
 signal user_earned_rewarded(currency, amount)
 
+@warning_ignore("unused_signal")
 signal interstitial_loaded()
+@warning_ignore("unused_signal")
 signal interstitial_closed()
 
 

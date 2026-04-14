@@ -16,7 +16,8 @@ func _ready():
 	for value in industries_temp:
 		_industries.push_back(value.get_child(0))
 	
-	for i in range(0,19):
+	var industries_count = Country_Data_Base.Get_industries_count()
+	for i in range(industries_count):
 		var data = Country_Data_Base.Get_industry_data(i)
 		_industries[i].set_industry(data)
 		_industries[i].on_revenue_change.connect(func():

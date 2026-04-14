@@ -1,21 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpav8gx1b6ynt"]
+[gd_scene load_steps=3 format=3 uid="uid://cpav8gx1b6ynt"]
 
 [ext_resource type="Script" path="res://Scripts/scroll_container.gd" id="1_j5iwa"]
+[ext_resource type="PackedScene" uid="uid://bksovloummcfb" path="res://Prefabs/industry_button.tscn" id="2_3lj8i"]
 
 [node name="industry_panel" type="Control"]
 layout_mode = 3
-anchor_right = 2.574
-anchor_bottom = 3.701
-offset_right = 41.752
-offset_bottom = 33.752
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, -2.915)
-layout_mode = 0
-offset_right = 1983.0
-offset_bottom = 2921.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_j5iwa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
@@ -23,3 +25,250 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 theme_override_constants/separation = 10
+
+[node name="IndustryRow01" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow01" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow02" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow02" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow03" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow03" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow04" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow04" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow05" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow05" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow06" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow06" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow07" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow07" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow08" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow08" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow09" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow09" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow10" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow10" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow11" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow11" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow12" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow12" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow13" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow13" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow14" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow14" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow15" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow15" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow16" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow16" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow17" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow17" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow18" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow18" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IndustryRow19" type="Control" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IndustryButton" parent="ScrollContainer/VBoxContainer/IndustryRow19" instance=ExtResource("2_3lj8i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0

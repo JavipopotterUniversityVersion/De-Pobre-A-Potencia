@@ -18,7 +18,7 @@ signal on_save_data
 var _current_scene
 var GAME_SCENE = preload("res://Scenes/GameScene.tscn")
 
-var _current_money:Big = Big.new(100)
+var _current_money:Big = Big.new(0)
 var _coin_button_value:Big = Big.new(1)
 var country_index = 0
 
