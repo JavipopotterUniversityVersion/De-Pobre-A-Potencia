@@ -66,6 +66,7 @@ config={
 }
 }
 }
+app_id/android="ca-app-pub-3940256099942544~3347511713"
 
 [ads]
 
@@ -85,7 +86,7 @@ GameManager="*res://Scripts/Game_Manager.gd"
 TweensDataBase="*res://Scripts/Tweens_DataBase.gd"
 CrazySDK="*res://Scripts/CrazySDK.gd.gd"
 AudioManager="*res://Prefabs/audio_manager.tscn"
-MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
+MobileAds="*res://Scripts/MobileAds.gd"
 AdsManager="*res://Scripts/Ads_Manager.gd"
 
 [display]
@@ -94,7 +95,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/admob/plugin.cfg")
+enabled=PackedStringArray("res://addons/simple_admob/plugin.cfg")
 
 [rendering]
 

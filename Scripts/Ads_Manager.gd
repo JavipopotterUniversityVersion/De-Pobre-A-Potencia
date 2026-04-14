@@ -104,7 +104,9 @@ func _admob_available() -> bool:
 		return false
 	if MobileAds == null:
 		return false
-	return Engine.has_singleton("AdMob")
+	if MobileAds.has_method("has_native_plugin"):
+		return MobileAds.has_native_plugin()
+	return Engine.has_singleton("SimpleAdMob")
 
 
 func _prepare_admob() -> void:

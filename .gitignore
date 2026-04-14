@@ -4,3 +4,7 @@
 # Local private/export artifacts
 Builds/
 Keys/
+
+# Android local gradle data
+**/.gradle/
+**/build/

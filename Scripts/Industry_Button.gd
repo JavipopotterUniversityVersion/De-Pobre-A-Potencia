@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Button
 class_name Industry_Button
 
 @warning_ignore("unused_signal")
@@ -15,16 +15,16 @@ var SCALING_FACTOR:Big = Big.new(1.05)
 
 func _ready():
 	_text = get_node("Label")
-	$Button.button_up.connect(_on_press)
-	$Button.disabled = true
+	button_up.connect(_on_press)
+	disabled = true
 	modulate = Color.BLACK
 
-	$Button.mouse_entered.connect(func(): 
-		if !$Button.disabled:
+	mouse_entered.connect(func(): 
+		if !disabled:
 			modulate = Color(0.7,0.7,0.7,1))
 		
-	$Button.mouse_exited.connect(func(): 
-		if !$Button.disabled:
+	mouse_exited.connect(func(): 
+		if !disabled:
 			modulate = Color(1,1,1,1))
 	
 	#GameManager.on_load_data.connect(_load_industry)
@@ -32,7 +32,7 @@ func _ready():
 	_load_industry()
 	
 func set_industry(data, inactive = true):
-	$Button.disabled = inactive
+	disabled = inactive
 	
 	if inactive:
 		modulate = Color.BLACK
@@ -74,7 +74,7 @@ func _upgrade():
 	_update_text()
 
 func _update_text():
-	if $Button.disabled:
+	if disabled:
 		_text.text = "?"
 	else:
 		_text.text = _industry_name + "\n"
@@ -93,7 +93,7 @@ func _save_industry():
 			"mantissa": _revenue.mantissa,
 			"exponent": _revenue.exponent
 			},
-		"active" = !$Button.disabled,
+		"active" = !disabled,
 		"level" = _level,
 		"upgrade_cost" = {
 			"mantissa": _upgrade_cost.mantissa,
@@ -113,7 +113,7 @@ func _load_industry():
 		if(industry_data.active):
 			create_tween().tween_property(self, "modulate", Color.WHITE, 1.0)
 			_text.modulate = Color.WHITE
-			$Button.disabled = false
+			disabled = false
 			
 		emit_signal("on_revenue_change")
 		_update_text()

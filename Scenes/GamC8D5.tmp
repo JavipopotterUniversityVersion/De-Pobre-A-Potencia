@@ -230,7 +230,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 55
 theme_override_font_sizes/font_size = 130
-text = "0"
+text = "0€"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_6367c")
@@ -339,6 +339,107 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
+
+[node name="ScrollContainer" parent="GameUI/Right_Panel/Control" index="0"]
+offset_right = 1869.0
+offset_bottom = 1788.0
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect" index="2"]
+offset_left = 1703.85
+offset_top = 71.001
+offset_right = 1813.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect" index="2"]
+offset_left = 1065.0
+offset_top = 4.23278
+offset_right = 1175.0
+offset_bottom = 94.233
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect" index="2"]
+offset_left = 1707.85
+offset_top = 43.001
+offset_right = 1817.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect" index="2"]
+offset_left = 1164.85
+offset_top = 8.00098
+offset_right = 1244.85
+offset_bottom = 86.001
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
+
+[node name="Info_Icon" parent="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect" index="2"]
+offset_left = 1708.85
+offset_top = 28.001
+offset_right = 1818.85
 
 [node name="Industries_Label" type="Label" parent="GameUI"]
 layout_mode = 2
@@ -481,7 +582,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 45
 theme_override_font_sizes/font_size = 90
-text = "$0/s"
+text = "0€/s"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -559,4 +660,24 @@ text = "Reset Data"
 script = ExtResource("27_h7fsa")
 
 [editable path="GameUI/Right_Panel/AddClickButton/coin_value_button/Info_Icon"]
+[editable path="GameUI/Right_Panel/Control"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer2/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer3/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer4/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer5/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer6/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer7/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer8/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer9/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer10/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer11/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer12/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer13/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer14/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer15/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer16/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer17/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer18/NinePatchRect"]
+[editable path="GameUI/Right_Panel/Control/ScrollContainer/VBoxContainer/PanelContainer19/NinePatchRect"]
 [editable path="GameUI/Info_Panel"]
